@@ -5,6 +5,7 @@ center first window     - center if only one window
 movestack               - Move stacks in a tag using mod+shift+{j,k}
 maximize                -
 noborder                - Noborder when only one window
+vanitygaps              - Gaps and stuff
 preserveonrestart       - Don't mashup all windows in a single tag on restarting dmw
 selfrestart             - Restart dwm without exiting logging back on
 status2d                - For beautiful status
