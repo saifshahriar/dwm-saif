@@ -1,4 +1,0 @@
-alwayscenter
-center first window
-noborder
-underline tags
