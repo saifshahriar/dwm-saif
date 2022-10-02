@@ -2,6 +2,7 @@ actualfullscreen        - Actually toggle fullscreen for a window, instead of to
 alttagsdecoration       - An alternative text for tags which contain at least one window
 alwayscenter            - Always center floating windows
 center first window     - center if only one window
+gaplessgrid             - Grid layout without the free space
 movestack               - Move stacks in a tag using mod+shift+{j,k}
 maximize                -
 noborder                - Noborder when only one window
