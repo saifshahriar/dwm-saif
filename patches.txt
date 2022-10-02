@@ -1,0 +1,12 @@
+actualfullscreen        - Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
+alttagsdecoration       - An alternative text for tags which contain at least one window
+alwayscenter            - Always center floating windows
+center first window     - center if only one window
+movestack               - Move stacks in a tag using mod+shift+{j,k}
+maximize                -
+noborder                - Noborder when only one window
+preserveonrestart       - Don't mashup all windows in a single tag on restarting dmw
+selfrestart             - Restart dwm without exiting logging back on
+status2d                - For beautiful status
+underline tags          - Underline below a tag
+xrdb                    - Read colors from xresources
