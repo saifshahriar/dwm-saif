@@ -1,4 +1,5 @@
 #include "colors.h"
+#include "gaplessgrid.c"
 #include "movestack.c"
 #include "selfrestart.c"
 
@@ -19,7 +20,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 12;       /* 2 is the default spacing around the bar's font */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
-static const char *colors[][3]      = {         // Support for Xresources file is there. So set it through the xresources file
+static const char *colors[][3]      = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*               fg             bg            border   */
 	[SchemeNorm] = { foreground,    background,   background },
 	[SchemeSel]  = { color4,        background,   color4 },
@@ -90,15 +91,13 @@ static const int   resizehints      = 1;    /* 1 means respect size hints in til
 static const int   lockfullscreen   = 1;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[]=",      tile },
+    { "###",      gaplessgrid },
 };
 
 /* Key Definitions */
 #define MODKEY  Mod4Mask
-#define META    Mod1Mask
+#define MOD2KEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -114,7 +113,6 @@ static const char *termcmd[]  = { "alacritty", NULL };
 /* Keybindings */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("dmenu_run -p 'Run:' -fn 'JetBrainsMono Nerd Font:size=10' -h 30")  },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -123,27 +121,19 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-	{ Mod1Mask,                     XK_Tab,    view,           {0} },
+	{ MODKEY,                       XK_Tab,    setlayout,      {0} },
 	{ MODKEY,                       XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	//{ MODKEY,             XK_space,  togglefloating, {0} },
-	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
-    { MODKEY|ControlMask,           XK_m,      togglemaximize, {0}  },
+	{ MODKEY,                       XK_space,  togglefloating, {0} },
+    { MODKEY|ShiftMask,             XK_m,      togglemaximize, {0} },
+	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
     /* Vanitygaps */
-	{ MODKEY,                       XK_equal,      incrgaps,       {.i = +1 } },
-	{ MODKEY,                       XK_minus,      incrgaps,       {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_equal,      incrogaps,      {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_minus,      incrogaps,      {.i = -1 } },
+	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1 } },
+	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -155,6 +145,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
     { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    /* Programmes */
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -p 'Run:' -fn 'JetBrainsMono Nerd Font:size=10' -h 30")  },
 };
 
 /* Mouse Bindings */
