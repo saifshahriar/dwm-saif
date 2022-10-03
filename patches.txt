@@ -5,6 +5,7 @@ center first window     - center if only one window
 gaplessgrid->psudogaplessgrid
                         - Grid layout without the free space. Psudo version is modified by me which adds gaps
 movestack               - Move stacks in a tag using mod+shift+{j,k}
+pertag                  -
 maximize                -
 noborder                - Noborder when only one window
 vanitygaps              - Gaps and stuff
