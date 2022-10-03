@@ -1,6 +1,6 @@
 #include "colors.h"
-#include "gaplessgrid.c"
 #include "movestack.c"
+#include "psudogaplessgrid.c"
 #include "selfrestart.c"
 
 #define ALT_TAG_DECOR_PATCH 1
@@ -85,14 +85,14 @@ static const Rule rules[] = {
 };
 
 /* Layout(s) */
-static const float mfact            = 0.5;  /* factor of master area size [0.05..0.95] */
+static const float mfact            = 0.494;  /* factor of master area size [0.05..0.95] */
 static const int   nmaster          = 1;    /* number of clients in master area */
 static const int   resizehints      = 1;    /* 1 means respect size hints in tiled resizals */
 static const int   lockfullscreen   = 1;    /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	{ "[]=",      tile },
-    { "###",      gaplessgrid },
+    { ":::",      gaplessgrid },
 };
 
 /* Key Definitions */
@@ -129,6 +129,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
     { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
+	{ MODKEY|ControlMask,           XK_equal,  incnmaster,     {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_minus,  incnmaster,     {.i = -1 } },
     /* Vanitygaps */
 	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1 } },
 	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1 } },
@@ -164,5 +166,6 @@ static const Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+    { ClkRootWin,           0,              Button1,        spawn,          SHCMD("dmenu_run -c -l 10 -fn 'JetBrainsMono Nerd Font:size=9'") },
 };
 
