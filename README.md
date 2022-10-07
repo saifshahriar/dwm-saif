@@ -1,6 +1,6 @@
 # DWM - Dynamic Window Manager
 
-My build of dmenu with minimal patches. Go to [patches](https://github.com/saifshahriar/dwm-saif-git/blob/main/readme.md#patches) section to know more.
+My build of dmenu with minimal patches. Go to [patches](https://github.com/saifshahriar/dwm-saif-git/blob/main/README.md#patches) section to know more.
 
 <hr>
 
