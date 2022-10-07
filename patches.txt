@@ -1,16 +1,15 @@
-actualfullscreen        - Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
-alttagsdecoration       - An alternative text for tags which contain at least one window
-alwayscenter            - Always center floating windows
-center first window     - center if only one window
-gaplessgrid->psudogaplessgrid
-                        - Grid layout without the free space. Psudo version is modified by me which adds gaps
-movestack               - Move stacks in a tag using mod+shift+{j,k}
-pertag                  -
-maximize                -
-noborder                - Noborder when only one window
-vanitygaps              - Gaps and stuff
-preserveonrestart       - Don't mashup all windows in a single tag on restarting dmw
-selfrestart             - Restart dwm without exiting logging back on
-status2d                - For beautiful status
-underline tags          - Underline below a tag
-xrdb                    - Read colors from xresources
+- actualfullscreen    - Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
+- alttagsdecoration   - An alternative text for tags which contain at least one window
+- alwayscenter        - Always center floating windows.
+- center first window - Center specific window if only one window.
+- maximize            - Toggle maximize.
+- movestack           - Move stacks in a tag using mod+shift+{j,k}
+- noborder            - Noborder when only one window.
+- pertag              - dwm pertag patch, which allow different type of window size in different tags and doesn't change if one changed in one tag.
+- preserveonrestart   - Don't mashup all windows in a single tag on restarting dmw
+- psudogaplessgrid    - Basically `gaplessgrid` layout. Psudo version is modified by me which adds gaps from `vanitygaps` patch.
+- selfrestart         - Restart dwm without exiting logging back on.
+- status2d            - Allows colors and rectangle drawing in DWM status bar.
+- underline tags      - Underline below a tag.
+- vanitygaps          - Adds gapps around the windows.
+- xrdb                - Read colors from xresources. For this patch to work, run the command `xrdb -load <path-to-xresources>`
