@@ -4,6 +4,16 @@ My build of dmenu with minimal patches. Go to [patches](https://github.com/saifs
 
 <hr>
 
+### Screenshots
+<div align="center">
+    <img src="https://github.com/saifshahriar/saifshahriar/blob/master/repo/dwm/Screenshot_2022-10-07-20-32-21_1366x768.png" width="500px">
+    <img src="https://raw.githubusercontent.com/saifshahriar/saifshahriar/master/repo/dwm/Screenshot_2022-10-07-20-35-53_1366x768.png" width="500px">
+</div>
+
+- Terminal Emulator: Alacritty
+- Colorscheme: Tokyonight
+
+<br>
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 ## Requirements
@@ -48,6 +58,13 @@ do
 done &
 exec dwm
 ```
+
+__If you want a similar status bar like mine, you can get it from my [dotfiles](https://github.com/saifshahriar/dotfiles/blob/master/.config/dwm/dwmbar.sh) repo.__
+
+<div align="right">
+    <img src="https://user-images.githubusercontent.com/89329547/194582023-6a81df49-5e77-48bb-a6f7-6dde0bcdc646.png">
+</div>
+
 
 ## Configuration
 The configuration of dwm is done by creating a custom config.h
