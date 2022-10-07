@@ -18,7 +18,7 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 0;       /* 2 is the default spacing around the bar's font */
+static const int user_bh            = 2;       /* 2 is the default spacing around the bar's font */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char *colors[][3]      = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*               fg             bg            border   */
@@ -78,17 +78,19 @@ static const char *alttags[] = {
 
 /* Window Rules */
 static const Rule rules[] = {
-	/* class        instance    title   tags mask   isfloating  CenterThisWindow?   monitor */
-	{ "Alacritty",  NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "Gimp",       NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Firefox",    NULL,       NULL,   1 << 8,     0,          0,                  -1 },
+	/* class            instance    title   tags mask   isfloating  CenterThisWindow?   monitor */
+	{ "Alacritty",      NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Firefox",        NULL,       NULL,   1 << 8,     0,          0,                  -1 },
+	{ "Lxappearance",   NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
 };
 
 /* Layout(s) */
-static const float mfact            = 0.494;  /* factor of master area size [0.05..0.95] */
-static const int   nmaster          = 1;    /* number of clients in master area */
-static const int   resizehints      = 1;    /* 1 means respect size hints in tiled resizals */
-static const int   lockfullscreen   = 1;    /* 1 will force focus on the fullscreen window */
+static const float mfact            = 0.494;    /* factor of master area size [0.05..0.95] */
+static const int   nmaster          = 1;        /* number of clients in master area */
+static const int   resizehints      = 1;        /* 1 means respect size hints in tiled resizals */
+static const int   lockfullscreen   = 1;        /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	{ "[]=",      tile },
@@ -148,7 +150,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     /* Programmes */
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -p 'Run:' -fn 'JetBrainsMono Nerd Font:size=10' -h 30")  },
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -p 'Run:' -fn 'JetBrainsMono Nerd Font:size=10' ")  },
 };
 
 /* Mouse Bindings */
