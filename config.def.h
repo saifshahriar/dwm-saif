@@ -105,7 +105,7 @@ static const Layout layouts[] = {
 
 /* Key Definitions */
 #define MODKEY  Mod4Mask
-#define AltKey  Mod1Mask
+#define META    Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
