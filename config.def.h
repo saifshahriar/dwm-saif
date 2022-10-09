@@ -1,6 +1,5 @@
 #include "colors.h"
 #include "movestack.c"
-#include "nextprev.c"
 #include "psudogaplessgrid.c"
 #include "selfrestart.c"
 
