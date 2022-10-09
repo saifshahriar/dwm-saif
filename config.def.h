@@ -1,5 +1,6 @@
 #include "colors.h"
 #include "movestack.c"
+#include "nextprev.c"
 #include "psudogaplessgrid.c"
 #include "selfrestart.c"
 
@@ -80,10 +81,14 @@ static const char *alttags[] = {
 static const Rule rules[] = {
 	/* class            instance    title   tags mask   isfloating  CenterThisWindow?   monitor */
 	{ "Alacritty",      NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "kitty",          NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "XTerm",          NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "st-256color",    NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "xterm-256color", NULL,       NULL,   0,          0,          1,                  -1 },
 	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Firefox",        NULL,       NULL,   1 << 8,     0,          0,                  -1 },
 	{ "Lxappearance",   NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
 };
 
 /* Layout(s) */
@@ -110,13 +115,14 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 /* Keybindings */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|ControlMask,           XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
     { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
