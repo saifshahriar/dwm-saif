@@ -5,7 +5,9 @@
 
 #define ALT_TAG_DECOR_PATCH 1
 #if ALT_TAG_DECOR_PATCH
-#define UNDERLINETAGS_PATCH 0                   /* Both Patches doesn't work togather */
+    #define UNDERLINETAGS_PATCH 0                   /* Both Patches doesn't work togather */
+#else
+    #define UNDERLINETAGS_PATCH 1
 #endif
 
 /* Appearance */
@@ -18,7 +20,7 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 2;       /* 2 is the default spacing around the bar's font */
+static const int user_bh            = 2;        /* 2 is the default spacing around the bar's font */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char *colors[][3]      = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*               fg             bg            border   */
@@ -32,48 +34,48 @@ static const float fw_width  =  0.8;      /* Window width */
 static const float fw_offy   = -0.05;     /* Y offset */
 
 #if UNDERLINETAGS_PATCH
-/* Tags */
-static const char *tags[] = { 
-    "  ", 
-    "  ",
-    "  ",
-    "  ",
-    "  ",
-    "  ",
-    "  ",
-    "  ",
-    " 漣 "
-};
+    /* Tags */
+    static const char *tags[] = { 
+        "  ", 
+        "  ",
+        "  ",
+        "  ",
+        "  ",
+        "  ",
+        "  ",
+        "  ",
+        " 漣 "
+    };
 
-/* Underline below the tags */
-static const unsigned int ulinepad	    = 5;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	= 3;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
-static const int          ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+    /* Underline below the tags */
+    static const unsigned int ulinepad	    = 5;	/* horizontal padding between the underline and tag */
+    static const unsigned int ulinestroke	= 3;	/* thickness / height of the underline */
+    static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
+    static const int          ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
 #else
-static const char *tags[] = { 
-    "dev",
-    "www",
-    "sys",
-    "doc",
-    "vbox",
-    "chat",
-    "mus",
-    "vid",
-    "gfx"
-};
+    static const char *tags[] = { 
+        "dev",
+        "www",
+        "sys",
+        "doc",
+        "vbox",
+        "chat",
+        "mus",
+        "vid",
+        "gfx"
+    };
 
-static const char *alttags[] = {
-    "[dev]",
-    "[www]",
-    "[sys]",
-    "[doc]",
-    "[vbox]",
-    "[chat]",
-    "[mus]",
-    "[vid]",
-    "[gfx]"
-};
+    static const char *alttags[] = {
+        "[dev]",
+        "[www]",
+        "[sys]",
+        "[doc]",
+        "[vbox]",
+        "[chat]",
+        "[mus]",
+        "[vid]",
+        "[gfx]"
+    };
 #endif
 
 /* Window Rules */
@@ -103,7 +105,7 @@ static const Layout layouts[] = {
 
 /* Key Definitions */
 #define MODKEY  Mod4Mask
-#define MOD2KEY Mod1Mask
+#define AltKey  Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -114,35 +116,37 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 /* Keybindings */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+    /* Basic Programmes */
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -p 'Run:' -fn 'JetBrainsMono Nerd Font:size=10' ")  },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+    /* Windows */
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1} },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1} },
+    { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1} },
+    { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1} },
 	{ MODKEY|ControlMask,           XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-    { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
-    { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ControlMask,           XK_equal,  incnmaster,     {.i = +1} },
+	{ MODKEY|ControlMask,           XK_minus,  incnmaster,     {.i = -1} },
+    /* Layouts */
 	{ MODKEY,                       XK_Tab,    setlayout,      {0} },
-	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_space,  togglefloating, {0} },
     { MODKEY|ShiftMask,             XK_space,  togglemaximize, {0} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-    { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
-	{ MODKEY|ControlMask,           XK_equal,  incnmaster,     {.i = +1 } },
-	{ MODKEY|ControlMask,           XK_minus,  incnmaster,     {.i = -1 } },
     /* Vanitygaps */
-	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1 } },
-	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1 } },
+	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1} },
+	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1} },
+    /* Tags */
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0} },
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -152,10 +156,12 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+    /* WM Controls */
+	{ MODKEY,                       XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_b,      togglebar,      {0} },
+    { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
     { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    /* Programmes */
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -p 'Run:' -fn 'JetBrainsMono Nerd Font:size=10' ")  },
 };
 
 /* Mouse Bindings */
