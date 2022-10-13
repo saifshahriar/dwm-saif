@@ -28,7 +28,8 @@ Afterwards enter the following command to build and install dwm (if
 necessary as root):
 
 ```bash
-make clean
+git clone https://github.com/saifshahriar/dwm-saif dwm --depth=1
+cd dwm
 make clean install
 ```
 
