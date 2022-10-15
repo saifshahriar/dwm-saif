@@ -4,6 +4,7 @@
 #include "selfrestart.c"
 
 #define ALT_TAG_DECOR_PATCH 1
+
 #if ALT_TAG_DECOR_PATCH
     #define UNDERLINETAGS_PATCH 0                   /* Both Patches doesn't work togather */
 #else
@@ -151,7 +152,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0} },
+	{ MODKEY,                       XK_Escape, toggleview,     {.ui = ~0} },
+	{ MODKEY,                       XK_0,      view,     	   {.ui = ~0} },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
