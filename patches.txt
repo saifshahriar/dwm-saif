@@ -2,6 +2,7 @@
 - alttagsdecoration   - An alternative text for tags which contain at least one window
 - alwayscenter        - Always center floating windows.
 - center first window - Center specific window if only one window.
+- focusonnetactive	  - Focus when a window gets active even in some other tag.
 - maximize            - Toggle maximize.
 - movestack           - Move stacks in a tag using mod+shift+{j,k}
 - noborder            - Noborder when only one window.
