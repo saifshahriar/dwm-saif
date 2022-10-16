@@ -237,7 +237,7 @@ static void incrogaps(const Arg *arg);
 // static void incrovgaps(const Arg *arg);
 // static void incrihgaps(const Arg *arg);
 // static void incrivgaps(const Arg *arg);
-// static void togglegaps(const Arg *arg);
+static void togglegaps(const Arg *arg);
 // static void defaultgaps(const Arg *arg);
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
