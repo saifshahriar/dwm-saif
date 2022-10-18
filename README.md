@@ -103,3 +103,19 @@ Here are some of the patches that I have applied.
 - vanitygaps          - Adds gapps around the windows.
 - xrdb                - Read colors from xresources. For this patch to work, run the command `xrdb -load <path-to-xresources>`
 
+## Major Keybindings
+`Super`(Mod4) key in the `Modkey`
+| Keys                            | Events                                  |
+|---------------------------------|-----------------------------------------|
+| Mod + Return                    | Open a terminal (Alacritty)             |
+| Mod + c                         | Close focused window                    |
+| Mod + {Up, Down}/{k, j}         | Move focus to the {next, prev} windows  |
+| Mod + {Left, Right}/{h, l}      | {Increase, Decrease} master pane size   |
+| Mod + Shift + {Up, Down}/{k, j} | Move focused window in stack            |
+| Mod + Tab                       | Toggle between `tile` and `grid` layout |
+| Alt + Tab                       | Cycle between windows in a single tag   |
+| Mod + {1-9}                     | Goto tag {1-9}                          |
+| Mod + Shift + {1-9}             | Move focused window to tag {1-9}        |
+| Mod + Shift + q                 | Quit DWM                                |
+| Mod + Shift + r                 | Restart DWM                             |
+_See more keybinds from `config.def.h`_
