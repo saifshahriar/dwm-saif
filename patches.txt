@@ -10,7 +10,7 @@
 - pertag              - dwm pertag patch, which allow different type of window size in different tags and doesn't change if one changed in one tag.
 - preserveonrestart   - Don't mashup all windows in a single tag on restarting dmw
 - psudogaplessgrid    - Basically `gaplessgrid` layout. Psudo version is modified by me which adds gaps from `vanitygaps` patch.
-- selfrestart         - Restart dwm without exiting logging back on.
+- restartsig		  - Restart dwm without exiting logging back on.
 - status2d            - Allows colors and rectangle drawing in DWM status bar.
 - underline tags      - Underline below a tag.
 - vanitygaps          - Adds gapps around the windows.
