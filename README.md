@@ -105,17 +105,26 @@ Here are some of the patches that I have applied.
 
 ## Major Keybindings
 `Super`(Mod4) key in the `Modkey`
-| Keys                            | Events                                  |
-|---------------------------------|-----------------------------------------|
-| Mod + Return                    | Open a terminal (Alacritty)             |
-| Mod + c                         | Close focused window                    |
-| Mod + {Up, Down}/{k, j}         | Move focus to the {next, prev} windows  |
-| Mod + {Left, Right}/{h, l}      | {Increase, Decrease} master pane size   |
-| Mod + Shift + {Up, Down}/{k, j} | Move focused window in stack            |
-| Mod + Tab                       | Toggle between `tile` and `grid` layout |
-| Alt + Tab                       | Cycle between windows in a single tag   |
-| Mod + {1-9}                     | Goto tag {1-9}                          |
-| Mod + Shift + {1-9}             | Move focused window to tag {1-9}        |
-| Mod + Shift + q                 | Quit DWM                                |
-| Mod + Shift + r                 | Restart DWM                             |
+| Keys                            | Events                                        |
+|---------------------------------|-----------------------------------------------|
+| Mod + Return                    | Open a terminal (Alacritty)                   |
+| Mod + d                         | Launch `dmenu_run`                            |
+| Mod + c                         | Close focused window                          |
+| Mod + {k, j}                    | Move focus to the {next, prev} windows        |
+| Mod + Shift + {k, j}            | Move focused window in stack                  |
+| Mod + {h, l}                    | {Increase, Decrease} master pane size         |
+| Alt + Tab                       | Cycle focus between windows                   |
+| Mod + Tab                       | Toggle between `tile` and `grid` layout       |
+| Mod + f                         | Toggle `fullscreen`                           |
+| Mod + Space                     | Toggle `floating`                             |
+| Mod + Shift + Space             | Toggle `maximize`                             |
+| Mod + {1-9}                     | Goto tag {1-9}                                |
+| Mod + Shift + {1-9}             | Move focused window to tag {1-9}              |
+| Mod + {Left, Right}             | Goto {next, prev} tag                         |
+| Mod + Shift + {Left, Right}     | Move focused window to {next, prev} tag       |
+| Mod + {equal, minus}            | {Increase, Decrease} gaps                     |
+| Mod + Shift + g                 | Toggle gaps                                   |
+| Mod + Shift + q                 | Quit DWM                                      |
+| Mod + Shift + r                 | Restart DWM                                   |
+
 _See more keybinds from `config.def.h`_
