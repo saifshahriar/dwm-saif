@@ -1,7 +1,6 @@
 #include "colors.h"
 #include "movestack.c"
 #include "psudogaplessgrid.c"
-#include "selfrestart.c"
 
 #define ALT_TAG_DECOR_PATCH 1
 
@@ -147,7 +146,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1} },
 	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1} },
 	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1} },
-	{ MODKEY|ShiftMask,					XK_g,	   togglegaps,     {0} },
+	{ MODKEY|ShiftMask,				XK_g,	   togglegaps,     {0} },
     /* Tags */
 	{ MODKEY,                       XK_Left,   viewtoleft,     {0} },
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
@@ -169,7 +168,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
-    { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
+    { MODKEY|ShiftMask, 			XK_r,      quit,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
