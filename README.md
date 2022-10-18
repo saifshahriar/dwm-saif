@@ -21,15 +21,18 @@ dwm is an extremely fast, small, and dynamic window manager for X.
 - For colour emoji support, install `libxft-bgra`. Heres the [repo](https://github.com/uditkarode/libxft-bgra).
 
 ## Installation
+Clone the repo:
+```bash
+git clone https://github.com/saifshahriar/dwm-saif dwm --depth=1
+cd dwm
+```
+
 Edit config.mk to match your local setup (dwm is installed into
 the /usr/local namespace by default).
 
 Afterwards enter the following command to build and install dwm (if
 necessary as root):
-
 ```bash
-git clone https://github.com/saifshahriar/dwm-saif dwm --depth=1
-cd dwm
 make clean install
 ```
 
@@ -66,6 +69,14 @@ __If you want a similar status bar like mine, you can get it from my [dotfiles](
     <img src="https://user-images.githubusercontent.com/89329547/194582023-6a81df49-5e77-48bb-a6f7-6dde0bcdc646.png">
 </div>
 
+
+If you are using a display manager (i.e. `lightdm`, `sddm`), you might need to copy the minimum text below into `/usr/share/xsession/dwm.desktop` file:
+```ini
+[Desktop Entry]
+Name=DWM
+Exec=dwm
+Type=XSession
+```
 
 ## Configuration
 The configuration of dwm is done by creating a custom config.h
