@@ -1,7 +1,6 @@
 #include "colors.h"
 #include "movestack.c"
 #include "psudogaplessgrid.c"
-#include "selfrestart.c"
 
 #define ALT_TAG_DECOR_PATCH 1
 
@@ -87,8 +86,9 @@ static const Rule rules[] = {
 	{ "XTerm",          NULL,       NULL,   0,          0,          1,                  -1 },
 	{ "st-256color",    NULL,       NULL,   0,          0,          1,                  -1 },
 	{ "xterm-256color", NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Firefox",        NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Brave-browser",  NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "TelegramDesktop",NULL,		NULL,	0,			1,			0,					-1 },
 	{ "Lxappearance",   NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
@@ -169,7 +169,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
-    { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
+    { MODKEY|ShiftMask, 			XK_r,      quit,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
