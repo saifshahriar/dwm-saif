@@ -97,9 +97,34 @@ Here are some of the patches that I have applied.
 - pertag              - dwm pertag patch, which allow different type of window size in different tags and doesn't change if one changed in one tag.
 - preserveonrestart   - Don't mashup all windows in a single tag on restarting dmw
 - psudogaplessgrid    - Basically `gaplessgrid` layout. Psudo version is modified by me which adds gaps from `vanitygaps` patch.
-- selfrestart         - Restart dwm without exiting logging back on.
+- restartsig		  - Restart dwm without exiting logging back on.
 - status2d            - Allows colors and rectangle drawing in DWM status bar.
 - underline tags      - Underline below a tag.
 - vanitygaps          - Adds gapps around the windows.
 - xrdb                - Read colors from xresources. For this patch to work, run the command `xrdb -load <path-to-xresources>`
 
+## Major Keybindings
+`Super`(Mod4) key in the `Modkey`
+| Keys                            | Events                                        |
+|---------------------------------|-----------------------------------------------|
+| Mod + Return                    | Open a terminal (Alacritty)                   |
+| Mod + d                         | Launch `dmenu_run`                            |
+| Mod + c                         | Close focused window                          |
+| Mod + {k, j}                    | Move focus to the {next, prev} windows        |
+| Mod + Shift + {k, j}            | Move focused window in stack                  |
+| Mod + {h, l}                    | {Increase, Decrease} master pane size         |
+| Alt + Tab                       | Cycle focus between windows                   |
+| Mod + Tab                       | Toggle between `tile` and `grid` layout       |
+| Mod + f                         | Toggle `fullscreen`                           |
+| Mod + Space                     | Toggle `floating`                             |
+| Mod + Shift + Space             | Toggle `maximize`                             |
+| Mod + {1-9}                     | Goto tag {1-9}                                |
+| Mod + Shift + {1-9}             | Move focused window to tag {1-9}              |
+| Mod + {Left, Right}             | Goto {next, prev} tag                         |
+| Mod + Shift + {Left, Right}     | Move focused window to {next, prev} tag       |
+| Mod + {equal, minus}            | {Increase, Decrease} gaps                     |
+| Mod + Shift + g                 | Toggle gaps                                   |
+| Mod + Shift + q                 | Quit DWM                                      |
+| Mod + Shift + r                 | Restart DWM                                   |
+
+_See more keybinds from [`config.def.h`](https://github.com/saifshahriar/dwm-saif/blob/master/config.def.h)_
