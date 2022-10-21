@@ -118,7 +118,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 /* Keybindings */
 static const Key keys[] = {
@@ -147,7 +147,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1} },
 	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1} },
 	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1} },
-	{ MODKEY|ShiftMask,					XK_g,	   togglegaps,     {0} },
+	{ MODKEY|ShiftMask,             XK_g,	   togglegaps,     {0} },
     /* Tags */
 	{ MODKEY,                       XK_Left,   viewtoleft,     {0} },
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
