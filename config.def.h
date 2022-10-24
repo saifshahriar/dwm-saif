@@ -11,19 +11,19 @@
 #endif
 
 /* Appearance */
-static const unsigned int borderpx       = 2;        /* border pixel of windows */
-static const unsigned int smartmaxborder = 1;        /* 1 means no border is shown when a window is maximized */
-static const unsigned int snap           = 32;       /* snap pixel */
-static const unsigned int gappih         = 10;       /* horiz inner gap between windows */
-static const unsigned int gappiv         = 10;       /* vert inner gap between windows */
-static const unsigned int gappoh         = 10;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 10;       /* vert outer gap between windows and screen edge */
-static const int smartgaps               = 1;        /* 1 means no outer gap when there is only one window */
-static const int showbar                 = 1;        /* 0 means no bar */
-static const int topbar                  = 1;        /* 0 means bottom bar */
-static const int user_bh                 = 2;        /* 2 is the default spacing around the bar's font */
-static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=10" };
-static const char *colors[][3]           = {         /* Looks for colors in xresources file, if not found colors.h is used */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int maxborder = 1;        /* 1 means no border is shown when a window is maximized */
+static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
+static const int showbar            = 1;        /* 0 means no bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 2;        /* 2 is the default spacing around the bar's font */
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
+static const char *colors[][3]      = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*               fg             bg            border   */
 	[SchemeNorm] = { foreground,    background,   background },
 	[SchemeSel]  = { color4,        background,   color4 },
