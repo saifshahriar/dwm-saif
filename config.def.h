@@ -120,14 +120,15 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-p", "Run:", "-fn", "JetBrainsMono Nerd Font:size=10", NULL };
 
 /* Keybindings */
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-    /* Basic Programmes */
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -p 'Run:' -fn 'JetBrainsMono Nerd Font:size=10' ")  },
+	/* Basic Programmes */
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-    /* Windows */
+	/* Windows */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1} },
 	{ META,                         XK_Tab,    focusstack,     {.i = +1} },
@@ -138,18 +139,18 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ControlMask,           XK_equal,  incnmaster,     {.i = +1} },
 	{ MODKEY|ControlMask,           XK_minus,  incnmaster,     {.i = -1} },
-    /* Layouts */
+	/* Layouts */
 	{ MODKEY,                       XK_Tab,    setlayout,      {0} },
 	{ MODKEY,                       XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglemaximize, {0} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
-    /* Vanitygaps */
+	/* Vanitygaps */
 	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1} },
 	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1} },
 	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1} },
 	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1} },
 	{ MODKEY|ShiftMask,             XK_g,	   togglegaps,     {0} },
-    /* Tags */
+	/* Tags */
 	{ MODKEY,                       XK_Left,   viewtoleft,     {0} },
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
@@ -166,7 +167,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-    /* WM Controls */
+	/* WM Controls */
 	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
