@@ -188,8 +188,8 @@ static const Key keys[] = {
 	 * dwm uses default theme from the colors array.
 	 */
 	{ MODKEY,                       XK_F5,     xrdb_reload,    {.v = NULL } }, 
-	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },           /* Reload DWM */
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },           /* Quit DWM */
 };
 
 /* Mouse Bindings */
