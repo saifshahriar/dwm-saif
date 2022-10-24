@@ -1830,15 +1830,17 @@ maximize(int x, int y, int w, int h) {
 		selmon->sel->oldy = selmon->sel->y;
 		selmon->sel->oldw = selmon->sel->w;
 		selmon->sel->oldh = selmon->sel->h;
-		if (smartmaxborder) {
+		if (maxborder) {
 			selmon->sel->oldbw = selmon->sel->bw;
 			selmon->sel->bw = 0;
+			resize(selmon->sel, x, y, w + selmon->sel->oldbw*2, h + selmon->sel->oldbw*2, True);
+		} else { 
+			resize(selmon->sel, x, y, w, h, True);
 		}
-		resize(selmon->sel, x, y, w, h, True);
 		selmon->sel->ismax = True;
 	}
 	else {
-		if (smartmaxborder) 
+		if (maxborder) 
 			selmon->sel->bw = selmon->sel->oldbw;
 		resize(selmon->sel, selmon->sel->oldx, selmon->sel->oldy, selmon->sel->oldw, selmon->sel->oldh, True);
 		if(!selmon->sel->wasfloating)
