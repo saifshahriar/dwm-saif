@@ -82,17 +82,22 @@ static const float fw_offy   = -0.05;     /* Y offset */
 /* Window Rules */
 static const Rule rules[] = {
 	/* class            instance    title   tags mask   isfloating  CenterThisWindow?   monitor */
+	/* Terminals */
 	{ "Alacritty",      NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "kitty",          NULL,       NULL,   0,          0,          1,                  -1 },
 	{ "XTerm",          NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "kitty",          NULL,       NULL,   0,          0,          1,                  -1 },
 	{ "st-256color",    NULL,       NULL,   0,          0,          1,                  -1 },
 	{ "xterm-256color", NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "Firefox",        NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	/* Browsers */
 	{ "Brave-browser",  NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Firefox",        NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Netsurf-gtk3",   NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Surf",           NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	/* Floting Apps */
 	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "TelegramDesktop",NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Lxappearance",   NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "TelegramDesktop",NULL,       NULL,   0,          1,          0,                  -1 },
 };
 
 /* Layout(s) */
