@@ -23,7 +23,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 2;        /* 2 is the default spacing around the bar's font */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
-static const char *colors[][3]      = {         /* Looks for colors in xresources file, if not found colors.h is used */
+static char *colors[][3]      = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*               fg             bg            border   */
 	[SchemeNorm] = { foreground,    background,   background },
 	[SchemeSel]  = { color4,        background,   color4 },
