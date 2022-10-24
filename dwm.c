@@ -281,6 +281,7 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void xrdb(const Arg *arg);
+static void xrdb_reload(const Arg *arg);
 static void zoom(const Arg *arg);
 
 /* variables */
@@ -1375,12 +1376,22 @@ manage(Window w, XWindowAttributes *wa)
 void
 xrdb(const Arg *arg)
 {
-  loadxrdb();
-  int i;
-  for (i = 0; i < LENGTH(colors); i++)
-                scheme[i] = drw_scm_create(drw, colors[i], 3);
-  focus(NULL);
-  arrange(NULL);
+
+	loadxrdb();
+	int i;
+	for (i = 0; i < LENGTH(colors); i++)
+		scheme[i] = drw_scm_create(drw, colors[i], 3);
+	focus(NULL);
+	arrange(NULL);
+	system("xrdb -merge ~/.config/X11/xresources");
+	system("xrdb -merge ~/.Xresources");
+}
+
+void
+xrdb_reload(const Arg *arg)
+{
+	xrdb(NULL);
+	xrdb(NULL);
 }
 
 void
