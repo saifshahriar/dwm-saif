@@ -5,9 +5,9 @@
 #define ALT_TAG_DECOR_PATCH 1
 
 #if ALT_TAG_DECOR_PATCH
-    #define UNDERLINETAGS_PATCH 0                   /* Both Patches doesn't work togather */
+	#define UNDERLINETAGS_PATCH 0                   /* Both Patches doesn't work togather */
 #else
-    #define UNDERLINETAGS_PATCH 1
+	#define UNDERLINETAGS_PATCH 1
 #endif
 
 /* Appearance */
@@ -35,48 +35,48 @@ static const float fw_width  =  0.8;      /* Window width */
 static const float fw_offy   = -0.05;     /* Y offset */
 
 #if UNDERLINETAGS_PATCH
-    /* Tags */
-    static const char *tags[] = { 
-        "  ", 
-        "  ",
-        "  ",
-        "  ",
-        "  ",
-        "  ",
-        "  ",
-        "  ",
-        " 漣 "
-    };
+	/* Tags */
+	static const char *tags[] = { 
+		"  ", 
+		"  ",
+		"  ",
+		"  ",
+		"  ",
+		"  ",
+		"  ",
+		"  ",
+		" 漣 "
+	};
 
-    /* Underline below the tags */
-    static const unsigned int ulinepad	    = 5;	/* horizontal padding between the underline and tag */
-    static const unsigned int ulinestroke	= 3;	/* thickness / height of the underline */
-    static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
-    static const int          ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+	/* Underline below the tags */
+	static const unsigned int ulinepad      = 5;    /* horizontal padding between the underline and tag */
+	static const unsigned int ulinestroke	= 3;    /* thickness / height of the underline */
+	static const unsigned int ulinevoffset	= 0;    /* how far above the bottom of the bar the line should appear */
+	static const int          ulineall      = 0;    /* 1 to show underline on all tags, 0 for just the active ones */
 #else
-    static const char *tags[] = { 
-        "dev",
-        "www",
-        "sys",
-        "doc",
-        "vbox",
-        "chat",
-        "mus",
-        "vid",
-        "gfx"
-    };
+	static const char *tags[] = { 
+		"dev",
+		"www",
+		"sys",
+		"doc",
+		"vbox",
+		"chat",
+		"mus",
+		"vid",
+		"gfx"
+	};
 
-    static const char *alttags[] = {
-        "[dev]",
-        "[www]",
-        "[sys]",
-        "[doc]",
-        "[vbox]",
-        "[chat]",
-        "[mus]",
-        "[vid]",
-        "[gfx]"
-    };
+	static const char *alttags[] = {
+		"[dev]",
+		"[www]",
+		"[sys]",
+		"[doc]",
+		"[vbox]",
+		"[chat]",
+		"[mus]",
+		"[vid]",
+		"[gfx]"
+	};
 #endif
 
 /* Window Rules */
@@ -90,7 +90,7 @@ static const Rule rules[] = {
 	{ "Firefox",        NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	{ "Brave-browser",  NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "TelegramDesktop",NULL,		NULL,	0,			1,			0,					-1 },
+	{ "TelegramDesktop",NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Lxappearance",   NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
 };
@@ -103,7 +103,7 @@ static const int   lockfullscreen   = 1;        /* 1 will force focus on the ful
 
 static const Layout layouts[] = {
 	{ "[]=",      tile },
-    { ":::",      gaplessgrid },
+	{ ":::",      gaplessgrid },
 };
 
 /* Key Definitions */
@@ -131,8 +131,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1} },
 	{ META,                         XK_Tab,    focusstack,     {.i = +1} },
-    { MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1} },
-    { MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1} },
 	{ MODKEY|ControlMask,           XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -141,7 +141,7 @@ static const Key keys[] = {
     /* Layouts */
 	{ MODKEY,                       XK_Tab,    setlayout,      {0} },
 	{ MODKEY,                       XK_space,  togglefloating, {0} },
-    { MODKEY|ShiftMask,             XK_space,  togglemaximize, {0} },
+	{ MODKEY|ShiftMask,             XK_space,  togglemaximize, {0} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
     /* Vanitygaps */
 	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1} },
@@ -169,8 +169,8 @@ static const Key keys[] = {
     /* WM Controls */
 	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-    { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
-    { MODKEY|ShiftMask, 			XK_r,      quit,           {1} },
+	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
+	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
@@ -189,6 +189,6 @@ static const Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-    { ClkRootWin,           0,              Button1,        spawn,          SHCMD("dmenu_run -c -l 10 -fn 'JetBrainsMono Nerd Font:size=9'") },
+	{ ClkRootWin,           0,              Button1,        spawn,          SHCMD("dmenu_run -c -l 10 -fn 'JetBrainsMono Nerd Font:size=9'") },
 };
 
