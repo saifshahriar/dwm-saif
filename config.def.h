@@ -135,11 +135,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	/* Windows */
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1} },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1} },
-	{ META,                         XK_Tab,    focusstack,     {.i = +1} },
-	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1} },
-	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1} },
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ META,                         XK_Tab,    focusstack,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -151,19 +151,19 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglemaximize, {0} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	/* Vanitygaps */
-	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1} },
-	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1} },
-	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1} },
-	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1} },
+	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +1 } },
+	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  incrogaps,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_minus,  incrogaps,      {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_g,	   togglegaps,     {0} },
 	/* Tags */
 	{ MODKEY,                       XK_Left,   viewtoleft,     {0} },
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
-	{ MODKEY,                       XK_Escape, toggleview,     {.ui = ~0} },
-	{ MODKEY,                       XK_0,      view,     	   {.ui = ~0} },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0} },
+	{ MODKEY,                       XK_Escape, toggleview,     {.ui = ~0 } },
+	{ MODKEY,                       XK_0,      view,     	   {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
