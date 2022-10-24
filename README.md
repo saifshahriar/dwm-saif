@@ -127,4 +127,4 @@ Here are some of the patches that I have applied.
 | Mod + Shift + q                 | Quit DWM                                      |
 | Mod + Shift + r                 | Restart DWM                                   |
 
-_See more keybinds from `config.def.h`_
+_See more keybinds from [`config.def.h`](https://github.com/saifshahriar/dwm-saif/blob/master/config.def.h)_
