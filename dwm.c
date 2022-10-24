@@ -2291,16 +2291,6 @@ togglemaximize(const Arg *arg) {
 }
 
 void
-toggleverticalmax(const Arg *arg) {
-	maximize(selmon->sel->x, selmon->wy, selmon->sel->w, selmon->wh - 2 * borderpx);
-}
-
-void
-togglehorizontalmax(const Arg *arg) {
-	maximize(selmon->wx, selmon->sel->y, selmon->ww - 2 * borderpx, selmon->sel->h);
-}
-
-void
 toggletag(const Arg *arg)
 {
 	unsigned int newtags;
