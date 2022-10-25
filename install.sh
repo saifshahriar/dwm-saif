@@ -9,6 +9,8 @@ make_clean() {
 install() {
 	$auth make clean install
 	$auth cp ./dwm.desktop /usr/share/xsessions/
+	mkdir -p /opt/dwm-saif
+	$auth cp ./* /opt/dwm-saif/
 }
 
 uninstall() {

@@ -57,16 +57,23 @@ click on a tag label adds/removes that tag to/from the focused window.
 .SS Keyboard commands
 .TP
 .B Mod4\-Return
-Start
-.BR alacritty(1).
+Spawn
+.BR alacritty(1)
+or st(1) depending on the updated config.
 .TP
 .B Mod4\-d
 Spawn
 .BR dmenu(1)
 for launching other programs.
 .TP
+.B Mod4\-c
+Close focused window.
+.TP
 .B Mod4\-Shift\-q
 Quit dwm.
+.TP
+.B Mod4\-Shift\-r
+Reload dwm.
 
 .SS For more keybindings, view the config.def.h or config.h
 .TP
@@ -86,6 +93,8 @@ Resize focused window while dragging. Tiled windows will be toggled to the float
 .SH CUSTOMIZATION
 dwm is customized by creating a custom config.h and (re)compiling the source
 code. This keeps it fast, secure and simple.
+.BR
+To customize the color, edit Xresources file and set the color.
 .SH SEE ALSO
 .BR dmenu (1),
 .BR st (1)
