@@ -17,7 +17,7 @@ My build of dwm with minimal patches. Go to [patches](https://github.com/saifsha
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 ## Why another DWM fork?
-DWM comes pretty usable. This fork of DWM tries to be minimal yet some features
+DWM comes in pretty good shape. This fork of DWM tries to be minimal yet some features
 that I thought is missing (for my personal use obviously). The word *minimal* is different from person to person. To be
 fair, I even tried to get rid of the bar. Lol! Also, one of the main purpose for
 this project is learning the *beautifully unsafe C programming language* that
@@ -61,8 +61,8 @@ the /usr/local namespace by default).
 chmod +x ./install.sh
 ./install -i
 ```
-__ This script also copies the current contents of the folder to
-`/opt/dwm-saif`.__
+
+*This script also copies the current contents of the folder to `/opt/dwm-saif`*
 
 Enter the following command to build and install dwm after every change to the
 files (if necessary as root):
@@ -146,11 +146,12 @@ Here are some of the patches that I have applied.
 ## Xresources Settings
 This is an example for all the variables you can use to customize the colours of
 dwm using `Xresources` file.
+
 __Note that__, dwm will look for the config file first in the
 `~/.config/X11/xresources` file. If not found, it will look for the
 `~/.Xresources file`. You have to press `Mod4 + F5` to make the changes take
 effect.
-```ini
+```scss
 ! TokyoNight colors for Xresources
 *background: #1a1b26
 *foreground: #c0caf5
