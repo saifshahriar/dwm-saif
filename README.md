@@ -17,7 +17,7 @@ My build of dwm with minimal patches. Go to [patches](https://github.com/saifsha
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 ## Why another DWM fork?
-DWM comes pretty usable. This fork of DWM tries to be minimal yet some features
+DWM comes in pretty good shape. This fork of DWM tries to be minimal yet some features
 that I thought is missing (for my personal use obviously). The word *minimal* is different from person to person. To be
 fair, I even tried to get rid of the bar. Lol! Also, one of the main purpose for
 this project is learning the *beautifully unsafe C programming language* that
@@ -29,9 +29,7 @@ dwm is written in. :/
 `Mod4 + Shift + r`.
 - Gaps and the ability to change the gaps on the fly. See `keybindings` section.
 - *Smartgaps*: Show no gaps when there is only one window.
-- Ability to set colours from `~/.Xresources` or `~/.config/X11/xresources` file
-and automatically load the colours using this key combination `Mod4 + F5`. This
-basically runs the `xrdb -merge <xresources>` command from the above two places.
+- Ability to set colours from `~/.Xresources` or `~/.config/X11/xresources` file. See more at [Xresources Section](https://github.com/saifshahriar/dwm-saif#xresources-settings).
 - Centers terminal windows (or any windows defined in the config) to the center
 if it is the only window in that tag. Also change the `height`, `width` and the
 `y-offset` of that window.
@@ -61,8 +59,8 @@ the /usr/local namespace by default).
 chmod +x ./install.sh
 ./install -i
 ```
-__ This script also copies the current contents of the folder to
-`/opt/dwm-saif`.__
+
+*This script also copies the current contents of the folder to `/opt/dwm-saif`*
 
 Enter the following command to build and install dwm after every change to the
 files (if necessary as root):
@@ -109,15 +107,6 @@ __If you want a similar status bar like mine, you can get it from my [dotfiles](
     <img src="https://user-images.githubusercontent.com/89329547/194582023-6a81df49-5e77-48bb-a6f7-6dde0bcdc646.png">
 </div>
 
-
-If you are using a display manager (i.e. `lightdm`, `sddm`), you might need to copy the minimum text below into `/usr/share/xsession/dwm.desktop` file:
-```ini
-[Desktop Entry]
-Name=DWM
-Exec=dwm
-Type=XSession
-```
-
 ## Configuration
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
@@ -146,11 +135,12 @@ Here are some of the patches that I have applied.
 ## Xresources Settings
 This is an example for all the variables you can use to customize the colours of
 dwm using `Xresources` file.
+
 __Note that__, dwm will look for the config file first in the
 `~/.config/X11/xresources` file. If not found, it will look for the
-`~/.Xresources file`. You have to press `Mod4 + F5` to make the changes take
-effect.
-```ini
+`~/.Xresources` file. You have to press `Mod4 + F5` to make the changes take
+effect. This basically runs the `xrdb -merge <xresources>` command
+```scss
 ! TokyoNight colors for Xresources
 *background: #1a1b26
 *foreground: #c0caf5
