@@ -107,15 +107,6 @@ __If you want a similar status bar like mine, you can get it from my [dotfiles](
     <img src="https://user-images.githubusercontent.com/89329547/194582023-6a81df49-5e77-48bb-a6f7-6dde0bcdc646.png">
 </div>
 
-
-If you are using a display manager (i.e. `lightdm`, `sddm`), you might need to copy the minimum text below into `/usr/share/xsession/dwm.desktop` file:
-```ini
-[Desktop Entry]
-Name=DWM
-Exec=dwm
-Type=XSession
-```
-
 ## Configuration
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
