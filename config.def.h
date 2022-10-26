@@ -49,12 +49,12 @@ static const float fw_offy   = -0.05;     /* Y offset */
 	};
 
 	/* Underline below the tags */
-	static const unsigned int ulinepad      = 5;    /* horizontal padding between the underline and tag */
-	static const unsigned int ulinestroke	= 3;    /* thickness / height of the underline */
-	static const unsigned int ulinevoffset	= 0;    /* how far above the bottom of the bar the line should appear */
-	static const int          ulineall      = 0;    /* 1 to show underline on all tags, 0 for just the active ones */
+	static const unsigned int ulinepad     = 5;    /* horizontal padding between the underline and tag */
+	static const unsigned int ulinestroke  = 3;    /* thickness / height of the underline */
+	static const unsigned int ulinevoffset = 0;    /* how far above the bottom of the bar the line should appear */
+	static const int          ulineall     = 0;    /* 1 to show underline on all tags, 0 for just the active ones */
 #else
-	static const char *tags[] = { 
+	static const char *tags[] = {
 		"dev",
 		"www",
 		"sys",
@@ -102,10 +102,10 @@ static const Rule rules[] = {
 };
 
 /* Layout(s) */
-static const float mfact            = 0.493;    /* factor of master area size [0.05..0.95] */
-static const int   nmaster          = 1;        /* number of clients in master area */
-static const int   resizehints      = 1;        /* 1 means respect size hints in tiled resizals */
-static const int   lockfullscreen   = 1;        /* 1 will force focus on the fullscreen window */
+static const float mfact          = 0.493;    /* factor of master area size [0.05..0.95] */
+static const int   nmaster        = 1;        /* number of clients in master area */
+static const int   resizehints    = 1;        /* 1 means respect size hints in tiled resizals */
+static const int   lockfullscreen = 1;        /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	{ "[]=",      tile },
