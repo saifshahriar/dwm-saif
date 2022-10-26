@@ -1,6 +1,6 @@
 # DWM - Dynamic Window Manager
 
-My build of dmenu with minimal patches. Go to [patches](https://github.com/saifshahriar/dwm-saif-git#patches) section to know more.
+My build of dwm with minimal patches. Go to [patches](https://github.com/saifshahriar/dwm-saif-git#patches) section to know more.
 
 <hr>
 
@@ -16,6 +16,34 @@ My build of dmenu with minimal patches. Go to [patches](https://github.com/saifs
 <br>
 dwm is an extremely fast, small, and dynamic window manager for X.
 
+## Why another DWM fork?
+DWM comes pretty usable. This fork of DWM tries to be minimal yet some features
+that I thought is missing (for my personal use obviously). The word *minimal* is different from person to person. To be
+fair, I even tried to get rid of the bar. Lol! Also, one of the main purpose for
+this project is learning the *beautifully unsafe C programming language* that
+dwm is written in. :/
+
+### Features:
+- Simple edited `config.def.h` file.
+- Ability reload dwm without logging out. Default key for this is
+`Mod4 + Shift + r`.
+- Gaps and the ability to change the gaps on the fly. See `keybindings` section.
+- *Smartgaps*: Show no gaps when there is only one window.
+- Ability to set colours from `~/.Xresources` or `~/.config/X11/xresources` file
+and automatically load the colours using this key combination `Mod4 + F5`. This
+basically runs the `xrdb -merge <xresources>` command from the above two places.
+- Centers terminal windows (or any windows defined in the config) to the center
+if it is the only window in that tag. Also change the `height`, `width` and the
+`y-offset` of that window.
+- Custom height for bar.
+- `Gaplessgrid` layout, but with gaps.
+- Toggle minimize.
+- No border when a window is minimized (can change the behaviour from the 
+config).
+
+### More to come?
+- Maybe a `lua` config file. Not too crazy like `awesomewm`. I am not sure. Heh.
+
 ## Requirements
 - In order to build dwm you need the Xlib header files.
 - For colour emoji support, install `libxft-bgra`. Heres the [repo](https://github.com/uditkarode/libxft-bgra).
@@ -29,20 +57,26 @@ cd dwm
 
 Edit config.mk to match your local setup (dwm is installed into
 the /usr/local namespace by default).
+```bash
+chmod +x ./install.sh
+./install -i
+```
+__ This script also copies the current contents of the folder to
+`/opt/dwm-saif`.__
 
-Afterwards enter the following command to build and install dwm (if
-necessary as root):
+Enter the following command to build and install dwm after every change to the
+files (if necessary as root):
 ```bash
 make clean install
 ```
 
 ## Running dwm
+### Startx
 Add the following line to your .xinitrc to start dwm using startx:
 
 ```bash
 exec dwm
 ```
-
 In order to connect dwm to a specific display, make sure that
 the DISPLAY environment variable is set correctly, e.g.:
 
@@ -52,6 +86,12 @@ DISPLAY=foo.bar:1 exec dwm
 
 (This will start dwm on display :1 of the host foo.bar.)
 
+### Display Manager
+If you are using a display manager (i.e. lightdm, sddm, gdm) and if you have
+already ran the `./install -i` command, you should see it in the login screen
+list.
+
+### Status Bar
 In order to display status info in the bar, you can do something
 like this in your .xinitrc:
 
@@ -102,6 +142,37 @@ Here are some of the patches that I have applied.
 - underline tags      - Underline below a tag.
 - vanitygaps          - Adds gapps around the windows.
 - xrdb                - Read colors from xresources. For this patch to work, run the command `xrdb -load <path-to-xresources>`
+
+## Xresources Settings
+This is an example for all the variables you can use to customize the colours of
+dwm using `Xresources` file.
+__Note that__, dwm will look for the config file first in the
+`~/.config/X11/xresources` file. If not found, it will look for the
+`~/.Xresources file`. You have to press `Mod4 + F5` to make the changes take
+effect.
+```ini
+! TokyoNight colors for Xresources
+*background: #1a1b26
+*foreground: #c0caf5
+
+*color0: #15161e
+*color1: #f7768e
+*color2: #9ece6a
+*color3: #e0af68
+*color4: #7aa2f7
+*color5: #bb9af7
+*color6: #7dcfff
+*color7: #a9b1d6
+
+*color8: #414868
+*color9: #f7768e
+*color10: #9ece6a
+*color11: #e0af68
+*color12: #7aa2f7
+*color13: #bb9af7
+*color14: #7dcfff
+*color15: #c0caf5
+```
 
 ## Major Keybindings
 `Super`(Mod4) key in the `Modkey`
