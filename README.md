@@ -6,7 +6,7 @@ My build of dwm with minimal patches. Go to [patches](https://github.com/saifsha
 
 ### Screenshots
 <div align="center">
-    <img src="https://github.com/saifshahriar/saifshahriar/blob/master/repo/dwm/Screenshot_2022-10-07-20-32-21_1366x768.png" width="500px">
+    <img src="https://raw.githubusercontent.com/saifshahriar/saifshahriar/master/repo/dwm/Screenshot_2022-10-07-20-32-21_1366x768.png" width="500px">
     <img src="https://raw.githubusercontent.com/saifshahriar/saifshahriar/master/repo/dwm/Screenshot_2022-10-07-20-35-53_1366x768.png" width="500px">
 </div>
 
