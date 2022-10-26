@@ -45,4 +45,10 @@ uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
-.PHONY: all options clean dist install uninstall
+setup: install
+	mkdir -p /usr/share/xsessions/
+	mkdir -p /opt/dwm-saif
+	cp ./dwm.desktop /usr/share/xsessions/
+	cp ./* /opt/dwm-saif/
+
+.PHONY: all options clean dist install uninstall setup
