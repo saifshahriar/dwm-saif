@@ -24,7 +24,7 @@ this project is learning the *beautifully unsafe C programming language* that
 dwm is written in. :/
 
 ### Features:
-- Simple edited `config.def.h` file.
+- Simple edited `config.h` file.
 - Ability reload dwm without logging out. Default key for this is
 `Mod4 + Shift + r`.
 - Gaps and the ability to change the gaps on the fly. See `keybindings` section.
@@ -188,4 +188,4 @@ effect. This basically runs the `xrdb -merge <xresources>` command
 | Mod + Shift + q                 | Quit DWM                                      |
 | Mod + Shift + r                 | Restart DWM                                   |
 
-_See more keybinds from [`config.def.h`](https://github.com/saifshahriar/dwm-saif/blob/master/config.def.h)_
+_See more keybinds from [`config.h`](https://github.com/saifshahriar/dwm-saif/blob/master/config.h)_
