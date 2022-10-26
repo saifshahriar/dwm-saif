@@ -53,14 +53,16 @@ git clone https://github.com/saifshahriar/dwm-saif dwm --depth=1
 cd dwm
 ```
 
-Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+Edit `config.mk` to match your local setup (dwm is installed into the
+`/usr/local` namespace by default).
+
+First time installing the window manager, type this commnad (as root) to setup
+everything.
 ```bash
-chmod +x ./install.sh
-./install -i
+make setup
 ```
 
-*This script also copies the current contents of the folder to `/opt/dwm-saif`*
+*Above command also copies the current contents of the folder to `/opt/dwm-saif`*
 
 Enter the following command to build and install dwm after every change to the
 files (if necessary as root):
