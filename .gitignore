@@ -1,7 +1,6 @@
 # suckless backups
 *.orig
 *.rej
-config.h
 
 # Prerequisites
 *.d
