@@ -29,9 +29,7 @@ dwm is written in. :/
 `Mod4 + Shift + r`.
 - Gaps and the ability to change the gaps on the fly. See `keybindings` section.
 - *Smartgaps*: Show no gaps when there is only one window.
-- Ability to set colours from `~/.Xresources` or `~/.config/X11/xresources` file
-and automatically load the colours using this key combination `Mod4 + F5`. This
-basically runs the `xrdb -merge <xresources>` command from the above two places.
+- Ability to set colours from `~/.Xresources` or `~/.config/X11/xresources` file. See more at [Xresources Section](https://github.com/saifshahriar/dwm-saif#xresources-settings).
 - Centers terminal windows (or any windows defined in the config) to the center
 if it is the only window in that tag. Also change the `height`, `width` and the
 `y-offset` of that window.
@@ -150,7 +148,7 @@ dwm using `Xresources` file.
 __Note that__, dwm will look for the config file first in the
 `~/.config/X11/xresources` file. If not found, it will look for the
 `~/.Xresources file`. You have to press `Mod4 + F5` to make the changes take
-effect.
+effect. This basically runs the `xrdb -merge <xresources>` command
 ```scss
 ! TokyoNight colors for Xresources
 *background: #1a1b26
