@@ -147,7 +147,7 @@ dwm using `Xresources` file.
 
 __Note that__, dwm will look for the config file first in the
 `~/.config/X11/xresources` file. If not found, it will look for the
-`~/.Xresources file`. You have to press `Mod4 + F5` to make the changes take
+`~/.Xresources` file. You have to press `Mod4 + F5` to make the changes take
 effect. This basically runs the `xrdb -merge <xresources>` command
 ```scss
 ! TokyoNight colors for Xresources
