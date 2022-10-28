@@ -71,7 +71,7 @@ Mod4\-Button3
 
 ## Keyboard commands
 Mod4\-Return
-:   Spawn alacritty(1) or st(1) depending on the updated config.
+:   Spawn st(1) as the terminal emmulator.
 
 Mod4\-d
 :   Spawn dmenu(1) for launching other programs.
@@ -109,7 +109,36 @@ floating state.
 
 # CUSTOMIZATION
 dwm is customized by creating a custom config.h and (re)compiling the source
-code. This keeps it fast, secure and simple.  To customize the color, edit Xresources file and set the color.
+code. This keeps it fast, secure and simple. To customize the color, edit
+Xresources file and set the color.
+
+
+## Xresources
+Dwm will look for the config file first in the ~/.config/X11/xresources file.
+If not found, it will look for the ~/.Xresources file. You have to press
+`Mod4 + F5` to make the changes take effect. This basically runs the
+`xrdb -merge <xresources>` command.
+
+Available Xresources variables:\
+\! TokyoNight colors for Xresources\
+\    \*background: #1a1b26\
+\    \*foreground: #c0caf5\
+\    \*color0: #15161e\
+\    \*color1: #f7768e\
+\    \*color2: #9ece6a\
+\    \*color3: #e0af68\
+\    \*color4: #7aa2f7\
+\    \*color5: #bb9af7\
+\    \*color6: #7dcfff\
+\    \*color7: #a9b1d6\
+\    \*color8: #414868\
+\    \*color9: #f7768e\
+\    \*color10: #9ece6a\
+\    \*color11: #e0af68\
+\    \*color12: #7aa2f7\
+\    \*color13: #bb9af7\
+\    \*color14: #7dcfff\
+\    \*color15: #c0caf5
 
 
 
