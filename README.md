@@ -120,15 +120,15 @@ Here are some of the patches that I have applied.
 - alttagsdecoration   - An alternative text for tags which contain at least one window
 - alwayscenter        - Always center floating windows.
 - center first window - Center specific window if only one window.
-- focusonnetactive	  - Focus when a window gets active even in some other tag.
-- focusadjacenttag	  - Focus adjacent tag using left/right arrow keys.
+- focusonnetactive    - Focus when a window gets active even in some other tag.
+- focusadjacenttag    - Focus adjacent tag using left/right arrow keys.
 - maximize            - Toggle maximize.
 - movestack           - Move stacks in a tag using mod+shift+{j,k}
 - noborder            - Noborder when only one window.
 - pertag              - dwm pertag patch, which allow different type of window size in different tags and doesn't change if one changed in one tag.
 - preserveonrestart   - Don't mashup all windows in a single tag on restarting dmw
 - psudogaplessgrid    - Basically `gaplessgrid` layout. Psudo version is modified by me which adds gaps from `vanitygaps` patch.
-- restartsig		  - Restart dwm without exiting logging back on.
+- restartsig          - Restart dwm without exiting logging back on.
 - status2d            - Allows colors and rectangle drawing in DWM status bar.
 - underline tags      - Underline below a tag.
 - vanitygaps          - Adds gapps around the windows.
@@ -170,7 +170,7 @@ effect. This basically runs the `xrdb -merge <xresources>` command
 `Super`(Mod4) key in the `Modkey`
 | Keys                            | Events                                        |
 |---------------------------------|-----------------------------------------------|
-| Mod + Return                    | Open a terminal (Alacritty)                   |
+| Mod + Return                    | Open a terminal (st)                          |
 | Mod + d                         | Launch `dmenu_run`                            |
 | Mod + c                         | Close focused window                          |
 | Mod + {k, j}                    | Move focus to the {next, prev} windows        |
