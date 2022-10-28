@@ -83,7 +83,7 @@ click on a tag label adds/removes that tag to/from the focused window.
 .SS Keyboard commands
 .TP
 Mod4-Return
-Spawn alacritty(1) or st(1) depending on the updated config.
+Spawn st(1) as the terminal emmulator.
 .TP
 Mod4-d
 Spawn dmenu(1) for launching other programs.
@@ -117,6 +117,92 @@ dwm is customized by creating a custom config.h and (re)compiling the
 source code.
 This keeps it fast, secure and simple.
 To customize the color, edit Xresources file and set the color.
+.SS Xresources
+.PP
+Dwm will look for the config file first in the
+\[ti]/.config/X11/xresources file.
+If not found, it will look for the \[ti]/.Xresources file.
+You have to press \f[V]Mod4 + F5\f[R] to make the changes take effect.
+This basically runs the \f[V]xrdb -merge <xresources>\f[R] command.
+.PP
+Available Xresources variables:
+.PD 0
+.P
+.PD
+!
+TokyoNight colors for Xresources
+.PD 0
+.P
+.PD
+\  *background: #1a1b26
+.PD 0
+.P
+.PD
+\  *foreground: #c0caf5
+.PD 0
+.P
+.PD
+\  *color0: #15161e
+.PD 0
+.P
+.PD
+\  *color1: #f7768e
+.PD 0
+.P
+.PD
+\  *color2: #9ece6a
+.PD 0
+.P
+.PD
+\  *color3: #e0af68
+.PD 0
+.P
+.PD
+\  *color4: #7aa2f7
+.PD 0
+.P
+.PD
+\  *color5: #bb9af7
+.PD 0
+.P
+.PD
+\  *color6: #7dcfff
+.PD 0
+.P
+.PD
+\  *color7: #a9b1d6
+.PD 0
+.P
+.PD
+\  *color8: #414868
+.PD 0
+.P
+.PD
+\  *color9: #f7768e
+.PD 0
+.P
+.PD
+\  *color10: #9ece6a
+.PD 0
+.P
+.PD
+\  *color11: #e0af68
+.PD 0
+.P
+.PD
+\  *color12: #7aa2f7
+.PD 0
+.P
+.PD
+\  *color13: #bb9af7
+.PD 0
+.P
+.PD
+\  *color14: #7dcfff
+.PD 0
+.P
+.PD
+\  *color15: #c0caf5
 .SH SEE ALSO
 .PP
 dmenu (1), st (1)
