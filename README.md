@@ -36,11 +36,13 @@ if it is the only window in that tag. Also change the `height`, `width` and the
 - Custom height for bar.
 - `Gaplessgrid` layout, but with gaps.
 - Toggle minimize.
-- No border when a window is minimized (can change the behaviour from the 
+- No border when a window is minimized (can change the behaviour from the
 config).
 
 ### More to come?
-- Maybe a `lua` config file. Not too crazy like `awesomewm`. I am not sure. Heh.
+- [ ] Maybe a `lua` config file. Not too crazy like `awesomewm`. I am not sure. Heh.
+- [ ] Combinations of `alttagsdecoration`, `underline tags`, and `rainbow` tags
+	  and the ability to turn them on/off from the config.
 
 ## Requirements
 - In order to build dwm you need the Xlib header files.
