@@ -119,11 +119,11 @@ and (re)compiling the source code.
 Here are some of the patches that I have applied.
 
 - actualfullscreen    - Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
+- adjacenttag         - Focus adjacent tag using left/right arrow keys.
 - alttagsdecoration   - An alternative text for tags which contain at least one window
 - alwayscenter        - Always center floating windows.
 - center first window - Center specific window if only one window.
 - focusonnetactive    - Focus when a window gets active even in some other tag.
-- focusadjacenttag    - Focus adjacent tag using left/right arrow keys.
 - maximize            - Toggle maximize.
 - movestack           - Move stacks in a tag using mod+shift+{j,k}
 - noborder            - Noborder when only one window.
