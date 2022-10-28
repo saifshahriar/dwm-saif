@@ -1,4 +1,4 @@
-# DWM - Dynamic Window Manager
+# <samp>DWM - Dynamic Window Manager<samp> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/saifshahriar/dwm-saif?color=%231a1b26&label=suckless%20&logo=c%2B%2B&logoColor=%237aa2f7&style=for-the-badge" align="right">
 
 My build of dwm with minimal patches. Go to [patches](https://github.com/saifshahriar/dwm-saif-git#patches) section to know more.
 
