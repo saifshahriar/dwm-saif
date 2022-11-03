@@ -96,6 +96,7 @@ static const Rule rules[] = {
 	{ "Netsurf-gtk3",   NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	{ "Surf",           NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	/* Floting Apps */
+	{ "alacritty-float",NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Lxappearance",   NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
