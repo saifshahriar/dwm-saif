@@ -211,6 +211,7 @@ static const Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-	{ ClkRootWin,           0,              Button1,        spawn,          SHCMD("dmenu_run -c -l 10 -fn 'JetBrainsMono Nerd Font:size=9'") },
+	{ ClkRootWin,           0,              Button1,        spawn,          SHCMD("dwm_menu") },
+	{ ClkRootWin,           0,              Button3,        spawn,          SHCMD("dwm_menu") },
 };
 

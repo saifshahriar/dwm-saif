@@ -1,0 +1,34 @@
+#!/bin/sh
+
+cat <<EOF | xmenu -ir | sh &
+  Dynamic Window Manager
+	Hotkeys				notify-send "Not yet implemented. Coming soon..."
+	Manual				st -e man dwm
+	Reload Xresources	xrdb -merge $HOME/.Xresources || xrdb -merge $HOME/.config/X11/xresources && notify-send 'Xresources loaded'
+  Applications
+	Development
+		# Lapce			lapce
+		# Geany			st -e geany
+		Neovim			st -e neovim
+		Vim				st -e vim
+	Multimedia
+		Ani-Cli
+			New Anime	st -e ani-cli || notify-send 'ani-cli not installed.'
+			Continue...	st -e ani-cli -c || notify-send 'Something is wrong. Cannot watch anime.'
+  Browser				brave || firefox
+  File Manager			pcmanfm	|| thunar
+  Launcher				dmenu_run -c -l 10 -fn "JetBrainsMono Nerd Font:pixelsize=13" -bw 2
+
+  Terminal				st
+  Text Editor			lapce || st -e neovim || st -e vim
+  Wallpapers
+	Browse				nitrogen
+	Restore				nitrogen --restore
+  Preferences
+	Config-files
+		Bashrc			st -e vim ~/.bashrc
+		Fish Config		st -e vim ~/.config/config.fish
+
+Reload WM				xdotool key super+shift+r && notify-send "Restarted DWM"
+Quit					pkill dwm
+EOF
