@@ -5,6 +5,9 @@
 *.orig
 *.rej
 
+# diff files
+*.diff
+
 # Prerequisites
 *.d
 
