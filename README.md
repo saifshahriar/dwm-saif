@@ -25,7 +25,7 @@ dwm is written in. :/
 
 ### Features:
 - Simple edited `config.h` file.
-- Ability reload dwm without logging out. Default key for this is
+- Ability to reload dwm without logging out. Default key for this is
 `Mod4 + Shift + r`.
 - Gaps and the ability to change the gaps on the fly. See `keybindings` section.
 - *Smartgaps*: Show no gaps when there is only one window.
