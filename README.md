@@ -149,6 +149,8 @@ effect. This basically runs the `xrdb -merge <xresources>` command
 ! TokyoNight colors for Xresources
 *background: #1a1b26
 *foreground: #c0caf5
+*selbackground: #1a1b26
+*selforeground: #7aa2f7
 
 *color0: #15161e
 *color1: #f7768e
