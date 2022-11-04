@@ -90,7 +90,7 @@ DISPLAY=foo.bar:1 exec dwm
 
 ### Display Manager
 If you are using a display manager (i.e. lightdm, sddm, gdm) and if you have
-already ran the `./install -i` command, you should see it in the login screen
+already ran the `make setup` command, you should see it in the login screen
 list.
 
 ### Status Bar
