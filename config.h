@@ -1,6 +1,7 @@
 #include "colors.h"
 #include "movestack.c"
 #include "psudogaplessgrid.c"
+#include "warp.c"
 
 #define ALT_TAG_DECOR_PATCH 1
 
