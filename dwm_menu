@@ -17,7 +17,7 @@ cat <<EOF | xmenu -ir | sh &
 			Continue...	st -e ani-cli -c || notify-send 'Something is wrong. Cannot watch anime.'
   Browser				brave || firefox
   File Manager			pcmanfm	|| thunar
-  Launcher				dmenu_run -c -l 10 -fn "JetBrainsMono Nerd Font:pixelsize=13" -bw 2
+  Launcher				dmenu_run -fn "JetBrainsMono Nerd Font:pixelsize=13" -l 15 -W 300 -bw 2 -X 530 -Y 250
 
   Terminal				st
   Text Editor			lapce || st -e neovim || st -e vim

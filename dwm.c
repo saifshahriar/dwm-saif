@@ -1269,24 +1269,26 @@ loadxrdb()
       xrdb = XrmGetStringDatabase(resm);
 
       if (xrdb != NULL) {
-            XRDB_LOAD_COLOR("background", background);
-            XRDB_LOAD_COLOR("foreground", foreground);
-            XRDB_LOAD_COLOR("color0",     color0);
-            XRDB_LOAD_COLOR("color1",     color1);
-            XRDB_LOAD_COLOR("color2",     color2);
-            XRDB_LOAD_COLOR("color3",     color3);
-            XRDB_LOAD_COLOR("color4",     color4);
-            XRDB_LOAD_COLOR("color5",     color5);
-            XRDB_LOAD_COLOR("color6",     color6);
-            XRDB_LOAD_COLOR("color7",     color7);
-            XRDB_LOAD_COLOR("color8",     color8);
-            XRDB_LOAD_COLOR("color9",     color9);
-            XRDB_LOAD_COLOR("color10",    color10);
-            XRDB_LOAD_COLOR("color11",    color11);
-            XRDB_LOAD_COLOR("color12",    color12);
-            XRDB_LOAD_COLOR("color13",    color13);
-            XRDB_LOAD_COLOR("color14",    color14);
-            XRDB_LOAD_COLOR("color15",    color15);
+            XRDB_LOAD_COLOR("background",    background);
+            XRDB_LOAD_COLOR("foreground",    foreground);
+            XRDB_LOAD_COLOR("selbackground", selbackground);
+            XRDB_LOAD_COLOR("selforeground", selforeground);
+            XRDB_LOAD_COLOR("color0",        color0);
+            XRDB_LOAD_COLOR("color1",        color1);
+            XRDB_LOAD_COLOR("color2",        color2);
+            XRDB_LOAD_COLOR("color3",        color3);
+            XRDB_LOAD_COLOR("color4",        color4);
+            XRDB_LOAD_COLOR("color5",        color5);
+            XRDB_LOAD_COLOR("color6",        color6);
+            XRDB_LOAD_COLOR("color7",        color7);
+            XRDB_LOAD_COLOR("color8",        color8);
+            XRDB_LOAD_COLOR("color9",        color9);
+            XRDB_LOAD_COLOR("color10",       color10);
+            XRDB_LOAD_COLOR("color11",       color11);
+            XRDB_LOAD_COLOR("color12",       color12);
+            XRDB_LOAD_COLOR("color13",       color13);
+            XRDB_LOAD_COLOR("color14",       color14);
+            XRDB_LOAD_COLOR("color15",       color15);
       }
     }
   }
