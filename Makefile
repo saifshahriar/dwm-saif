@@ -54,4 +54,7 @@ setup: install
 	cp ./dwm.desktop /usr/share/xsessions/
 	cp ./* /opt/dwm-saif/
 
-.PHONY: all options clean dist install uninstall setup
+man:
+	pandoc -s -t man dwm.1.md -o dwm.1
+
+.PHONY: all options clean dist install uninstall setup man
