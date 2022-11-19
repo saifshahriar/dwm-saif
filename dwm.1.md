@@ -140,10 +140,18 @@ Available Xresources variables:\
 \    \*color14: #7dcfff\
 \    \*color15: #c0caf5
 
+\! Xmenu specific\
+\    xmenu.font: JetBrainsMono Nerd Font:size=9, NotoColorEmoji:size=11\
+\    xmenu.separator: #c0caf5\
+\    xmenu.borderWidth: 2\
+\    xmenu.border: #7aa2f7\
+\    xmenu.selbackground: #7aa2f7\
+\    xmenu.selforeground: #1a1b26\
+
 
 
 # SEE ALSO
-dmenu (1), st (1)
+dmenu(1), st(1), xmenu(1)
 
 # ISSUES
 Java applications which use the XToolkit/XAWT backend may draw grey windows
