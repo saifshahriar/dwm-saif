@@ -47,6 +47,11 @@ config).
 ## Requirements
 - In order to build dwm you need the Xlib header files.
 - For colour emoji support, install `libxft-bgra`. Heres the [repo](https://github.com/uditkarode/libxft-bgra).
+- `st`, unless you change the terminal emmulator
+- `dmenu`, as the run launcher
+- `xmneu`, for right click menu support
+- `xdotool`, for some of the xmenu scripting
+- `JetBrainsMono Nerd Font` or any nerd font for icons
 
 ## Installation
 Clone the repo:
@@ -169,6 +174,14 @@ effect. This basically runs the `xrdb -merge <xresources>` command
 *color13: #bb9af7
 *color14: #7dcfff
 *color15: #c0caf5
+
+! Xmenu specific
+xmenu.font: JetBrainsMono Nerd Font:size=9, NotoColorEmoji:size=11
+xmenu.separator: #c0caf5
+xmenu.borderWidth: 2
+xmenu.border: #7aa2f7
+xmenu.selbackground: #7aa2f7
+xmenu.selforeground: #1a1b26
 ```
 
 ## Major Keybindings
