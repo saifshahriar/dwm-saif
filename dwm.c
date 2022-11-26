@@ -501,17 +501,11 @@ buttonpress(XEvent *e)
 	}
 	if (ev->window == selmon->barwin) {
 		i = x = occ = 0;
-        #if ALT_TAG_DECOR_PATCH
-		    /* Bitmask of occupied tags */
-		    for (c = m->clients; c; c = c->next)
-			    occ |= c->tags;
-        #endif
+		/* Bitmask of occupied tags */
+		for (c = m->clients; c; c = c->next)
+			occ |= c->tags;
 		do {
-            #if ALT_TAG_DECOR_PATCH
-			    x += TEXTW(occ & 1 << i ? alttags[i] : tags[i]);
-            #else
-                x += TEXTW(tags[i]);
-            #endif  
+			x += TEXTW(occ & 1 << i ? alttags[i] : tags[i]);
         } while (ev->x >= x && ++i < LENGTH(tags));
 		if (i < LENGTH(tags)) {
 			click = ClkTagBar;
@@ -941,22 +935,20 @@ drawbar(Monitor *m)
 	}
 	x = 0;
 	for (i = 0; i < LENGTH(tags); i++) {
-    #if ALT_TAG_DECOR_PATCH
-            tagtext = occ & 1 << i ? alttags[i] : tags[i];
-            w = TEXTW(tagtext);
-            drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
-            drw_text(drw, x, 0, w, bh, lrpad / 2, tagtext, urg & 1 << i);
-    #else
-            w = TEXTW(tags[i]);
-            drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
-            drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
-            if (ulineall || m->tagset[m->seltags] & 1 << i) /* if there are conflicts, just move these lines directly underneath both 'drw_setscheme' and 'drw_text' :) */
-                drw_rect(drw, x + ulinepad, bh - ulinestroke - ulinevoffset, w - (ulinepad * 2), ulinestroke, 1, 0);
-            if (occ & 1 << i)
-                drw_rect(drw, x + boxs, boxs, boxw, boxw,
-                        m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
-                        urg & 1 << i);
-    #endif
+		tagtext = occ & 1 << i && alttagsdecor ? alttags[i] : tags[i];
+		w = TEXTW(tagtext);
+		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
+		drw_text(drw, x, 0, w, bh, lrpad / 2, tagtext, urg & 1 << i);
+		if (ulineall || m->tagset[m->seltags] & 1 << i) { /* if there are conflicts, just move these lines directly underneath both 'drw_setscheme' and 'drw_text' :) */
+			if (!ulinetags)
+				drw_rect(drw, x + ulinepad, bh - 0 - ulinevoffset, w - (ulinepad * 2), 0, 1, 0);
+			else
+				drw_rect(drw, x + ulinepad, bh - ulinestroke - ulinevoffset, w - (ulinepad * 2), ulinestroke, 1, 0);
+		}
+		if (rect_indicator && occ & 1 << i)
+			drw_rect(drw, x + boxs, boxs, boxw, boxw,
+					m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
+					urg & 1 << i);
 		x += w;
 	}
 	w = TEXTW(m->ltsymbol);
