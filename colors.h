@@ -1,8 +1,10 @@
 /* Tokyonight Night Theme */
 static char background[]    = "#1a1b26";   /* bg */
 static char foreground[]    = "#c0caf5";   /* fg */
-static char selbackground[] = "#1a1b26";   /* selbg */
-static char selforeground[] = "#7aa2f7";   /* selfg */
+static char selbackground[] = "#c0caf5";   /* selbg */
+static char selforeground[] = "#1a1b26";   /* selfg */
+static char accent[]        = "#7aa2f7";   /* accent color */
+static char border[]        = "#7aa2f7";   /* border */
 static char color0[]        = "#15161e";   /* black */
 static char color1[]        = "#f7768e";   /* red */
 static char color2[]        = "#9ece6a";   /* green */

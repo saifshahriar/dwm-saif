@@ -1273,6 +1273,8 @@ loadxrdb()
             XRDB_LOAD_COLOR("foreground",    foreground);
             XRDB_LOAD_COLOR("selbackground", selbackground);
             XRDB_LOAD_COLOR("selforeground", selforeground);
+            XRDB_LOAD_COLOR("accent",        border);
+            XRDB_LOAD_COLOR("border",        accent);
             XRDB_LOAD_COLOR("color0",        color0);
             XRDB_LOAD_COLOR("color1",        color1);
             XRDB_LOAD_COLOR("color2",        color2);

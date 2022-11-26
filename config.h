@@ -27,7 +27,7 @@ static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static char *colors[][3]            = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*               fg             bg             border   */
 	[SchemeNorm] = { foreground,    background,    background },
-	[SchemeSel]  = { selforeground, selbackground, selbackground },
+	[SchemeSel]  = { accent,        background,    border },
 };
 
 /* First Window Center Patch */
@@ -37,8 +37,8 @@ static const float fw_offy   = -0.05;     /* Y offset */
 
 #if UNDERLINETAGS_PATCH
 	/* Tags */
-	static const char *tags[] = { 
-		"  ", 
+	static const char *tags[] = {
+		"  ",
 		"  ",
 		"  ",
 		"  ",
