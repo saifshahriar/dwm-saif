@@ -151,6 +151,8 @@ effect. This basically runs the `xrdb -merge <xresources>` command
 *foreground: #c0caf5
 *selbackground: #1a1b26
 *selforeground: #7aa2f7
+*accent: #7aa2f7
+*border: #7aa2f7
 
 *color0: #15161e
 *color1: #f7768e

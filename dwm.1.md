@@ -123,6 +123,8 @@ Available Xresources variables:\
 \! TokyoNight colors for Xresources\
 \    \*background: #1a1b26\
 \    \*foreground: #c0caf5\
+\    \*selbackground: #c0caf5\
+\    \*selforeground: #1a1b26\
 \    \*color0: #15161e\
 \    \*color1: #f7768e\
 \    \*color2: #9ece6a\
