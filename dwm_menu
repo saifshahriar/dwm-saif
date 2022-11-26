@@ -1,26 +1,32 @@
 #!/bin/sh
 
+############################
+### DWM Right Click Menu ###
+############################
+# You need xmenu for the actual menu and nerd fonts for icons
+
 cat <<EOF | xmenu -ir | sh &
   Dynamic Window Manager
 	Hotkeys				notify-send "Not yet implemented. Coming soon..."
 	Manual				st -e man dwm
 	Reload Xresources	xrdb -merge $HOME/.Xresources || xrdb -merge $HOME/.config/X11/xresources && notify-send 'Xresources loaded'
+	 Kernel			notify-send "Kernel: $(uname -r)"
   Applications
 	Development
-		# Lapce			lapce
-		# Geany			st -e geany
+		Lapce			lapce
 		Neovim			st -e neovim
-		Vim				st -e vim
+		 Vim			st -e vim
+		 Python3		st -e python3 || st -e python
 	Multimedia
 		Ani-Cli
 			New Anime	st -e ani-cli || notify-send 'ani-cli not installed.'
 			Continue...	st -e ani-cli -c || notify-send 'Something is wrong. Cannot watch anime.'
-  Browser				brave || firefox
-  File Manager			pcmanfm	|| thunar
+  Browser				"$BROWSER" || brave || firefox
+  File Manager			"$FILEMANAGER" || pcmanfm	|| thunar
   Launcher				dmenu_run -fn "JetBrainsMono Nerd Font:pixelsize=13" -l 15 -W 300 -bw 2 -X 530 -Y 250
 
   Terminal				st
-  Text Editor			lapce || st -e neovim || st -e vim
+  Text Editor			lapce || st -e "$EDITOR" || st -e neovim || st -e vim
   Wallpapers
 	Browse				nitrogen
 	Restore				nitrogen --restore
@@ -29,6 +35,6 @@ cat <<EOF | xmenu -ir | sh &
 		Bashrc			st -e vim ~/.bashrc
 		Fish Config		st -e vim ~/.config/config.fish
 
-Reload WM				xdotool key super+shift+r && notify-send "Restarted DWM"
-Quit					pkill dwm
+勒  Reload WM			xdotool key super+shift+r && notify-send "Restarted DWM"
+  Quit					pkill dwm
 EOF

@@ -93,7 +93,7 @@ static const Rule rules[] = {
 	{ "xterm-256color", NULL,       NULL,   0,          0,          1,                  -1 },
 	/* Browsers */
 	{ "Brave-browser",  NULL,       NULL,   1 << 1,     0,          0,                  -1 },
-	{ "Firefox",        NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "firefox",        NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	{ "Netsurf-gtk3",   NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	{ "Surf",           NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	/* Floting Apps */
