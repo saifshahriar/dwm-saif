@@ -192,7 +192,7 @@ static void detachstack(Client *c);
 static Monitor *dirtomon(int dir);
 static void drawbar(Monitor *m);
 static void drawbars(void);
-static int drawstatusbar(Monitor *m, int bh, char* text);
+static int drawstatusbar(Monitor *m, int bh, char* text, int isRightStatus);
 static void enternotify(XEvent *e);
 static void expose(XEvent *e);
 static void focus(Client *c);
@@ -295,8 +295,8 @@ static void zoom(const Arg *arg);
 static const char broken[] = "broken";
 static char stext[1024];
 static int screen;
-static char estextl[256];
-static char estextr[256];
+static char estextl[1024];
+static char estextr[1024];
 static int sw, sh;           /* X display screen geometry width, height */
 static int bh;               /* bar height */
 static int enablegaps = 1;   /* enables gaps, used by togglegaps */
@@ -820,7 +820,7 @@ dirtomon(int dir)
 }
 
 int
-drawstatusbar(Monitor *m, int bh, char* stext) {
+drawstatusbar(Monitor *m, int bh, char* stext, int isRightStatus) {
 	int ret, i, w, x, len;
 	short isCode = 0;
 	char *text;
@@ -858,7 +858,10 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 	text = p;
 
 	w += 2; /* 1px padding on both sides */
-	ret = x = m->ww - w;
+	if (isRightStatus)
+		ret = x = m->ww - w;
+	else
+		ret = x = 5;
 
 	drw_setscheme(drw, scheme[LENGTH(colors)]);
 	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
@@ -927,7 +930,6 @@ drawstatusbar(Monitor *m, int bh, char* stext) {
 	return ret;
 }
 
-
 void
 drawbar(Monitor *m)
 {
@@ -943,7 +945,7 @@ drawbar(Monitor *m)
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
-        tw = m->ww - drawstatusbar(m, bh, stext);
+        tw = m->ww - drawstatusbar(m, bh, stext, 1);
 	}
 
 	for (c = m->clients; c; c = c->next) {
@@ -990,10 +992,13 @@ drawbar(Monitor *m)
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		/* clear default bar draw buffer by drawing a blank rectangle */
 		drw_rect(drw, 0, 0, m->ww, bh, 1, 1);
-		etwr = TEXTW(estextr) - lrpad + 2; /* 2px right padding */
-		drw_text(drw, m->ww - etwr, 0, etwr, bh, 0, estextr, 0);
+		/* draw text and color the extrabar */
+		etwr += m->ww - drawstatusbar(m, bh, estextr, 1);
+		etwl += drawstatusbar(m, bh, estextl, 0);
+		/* etwr = TEXTW(estextr) - lrpad + 2; */ /* 2px right padding */
+		/* drw_text(drw, m->ww - etwr, 0, etwr, bh, 0, estextr, 0);
 		etwl = TEXTW(estextl);
-		drw_text(drw, 0, 0, etwl, bh, 0, estextl, 0);
+		drw_text(drw, 0, 0, etwl, bh, 0, estextl, 0); */
 		drw_map(drw, m->extrabarwin, 0, 0, m->ww, bh);
 	}
 }

@@ -11,7 +11,7 @@ static const unsigned int smartgaps      = 1;        /* 1 means no outer gap whe
 static const unsigned int snap           = 32;       /* snap pixel */
 static const unsigned int ulinetags      = 0;        /* 1 means underline under tags */
 static const unsigned int warp           = 1;        /* 0 means no cursor warp when switching between windows or monitors */
-static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=10" };
+static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=18" };
 static char *colors[][3]                 = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*                fg             bg             border   */
 	[SchemeNorm]  = { foreground,    background,    background },
@@ -23,7 +23,7 @@ static char *colors[][3]                 = {         /* Looks for colors in xres
 static const unsigned int showbar  = 1;   /* 0 means no bar */
 static const unsigned int topbar   = 1;   /* 0 means bottom bar */
 static const unsigned int extrabar = 1;   /* 0 means no extra bar */
-static const int user_bh           = 2;   /* 2 is the default spacing around the bar's font */
+static const int user_bh           = 22;   /* 2 is the default spacing around the bar's font */
 static const char statussep        = ';'; /* separator between statuses */
 
 /* Gaps */
