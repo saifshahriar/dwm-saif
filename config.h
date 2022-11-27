@@ -5,15 +5,12 @@
 /* Appearance */
 static const unsigned int alttagsdecor   = 1;        /* 0 means no alternate tags */
 static const unsigned int borderpx       = 2;        /* border pixel of windows */
-static const unsigned int maxborder      = 1;        /* 1 means no border is shown when a window is maximized */
 static const unsigned int rect_indicator = 0;        /* 1 means rectangular indicator for active tags */
-static const unsigned int showbar        = 1;        /* 0 means no bar */
+static const unsigned int smartborder    = 1;        /* 0 means borders are shown around a maximized window */
 static const unsigned int smartgaps      = 1;        /* 1 means no outer gap when there is only one window */
 static const unsigned int snap           = 32;       /* snap pixel */
-static const unsigned int topbar         = 1;        /* 0 means bottom bar */
 static const unsigned int ulinetags      = 0;        /* 1 means underline under tags */
 static const unsigned int warp           = 1;        /* 0 means no cursor warp when switching between windows or monitors */
-static const int user_bh                 = 2;        /* 2 is the default spacing around the bar's font */
 static const char *fonts[]               = { "JetBrainsMono Nerd Font:size=10" };
 static char *colors[][3]                 = {         /* Looks for colors in xresources file, if not found colors.h is used */
 	/*                fg             bg             border   */
@@ -21,6 +18,13 @@ static char *colors[][3]                 = {         /* Looks for colors in xres
 	[SchemeSel]   = { background,    accent,        border },
 	[SchemeTitle] = { accent,        background,    NULL }
 };
+
+/* Bar */
+static const unsigned int showbar  = 1;   /* 0 means no bar */
+static const unsigned int topbar   = 1;   /* 0 means bottom bar */
+static const unsigned int extrabar = 1;   /* 0 means no extra bar */
+static const int user_bh           = 2;   /* 2 is the default spacing around the bar's font */
+static const char statussep        = ';'; /* separator between statuses */
 
 /* Gaps */
 static const unsigned int gappih = 10;    /* horiz inner gap between windows */
@@ -176,7 +180,9 @@ static const Key keys[] = {
 	/* WM Controls */
 	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	/* 
+	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
+	{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },
+	/*
 	 * xrdb_reload
 	 * Modify the Xresources file and press the keybindings to apply the color.
 	 * No need to run the command `xrdb -merge <Xresources> 
@@ -200,6 +206,9 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkExBarLeftStatus,   0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkExBarMiddle,       0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkExBarRightStatus,  0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
