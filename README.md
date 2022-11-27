@@ -129,6 +129,7 @@ Here are some of the patches that I have applied.
 - alwayscenter        - Always center floating windows.
 - center first window - Center specific window if only one window.
 - cursorwarp          - Warp the cursor to the center of the target window when switching between them.
+- extrabar            - Dual bar.
 - focusonnetactive    - Focus when a window gets active even in some other tag.
 - maximize            - Toggle maximize.
 - movestack           - Move stacks in a tag using mod+shift+{j,k}
@@ -181,9 +182,6 @@ effect. This basically runs the `xrdb -merge <xresources>` command
 xmenu.font: JetBrainsMono Nerd Font:size=9, NotoColorEmoji:size=11
 xmenu.separator: #c0caf5
 xmenu.borderWidth: 2
-xmenu.border: #7aa2f7
-xmenu.selbackground: #7aa2f7
-xmenu.selforeground: #1a1b26
 ```
 
 ## Major Keybindings
