@@ -27,10 +27,10 @@ static const int user_bh           = 2;   /* 2 is the default spacing around the
 static const char statussep        = ';'; /* separator between statuses */
 
 /* Gaps */
-static const unsigned int gappih = 10;    /* horiz inner gap between windows */
-static const unsigned int gappiv = 10;    /* vert inner gap between windows */
-static const unsigned int gappoh = 10;    /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov = 10;    /* vert outer gap between windows and screen edge */
+static const unsigned int gappih = 5;    /* horiz inner gap between windows */
+static const unsigned int gappiv = 5;    /* vert inner gap between windows */
+static const unsigned int gappoh = 5;    /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov = 5;    /* vert outer gap between windows and screen edge */
 
 /* First Window Center Patch */
 static const float fw_height =  0.7;   /* Window height */
@@ -82,27 +82,31 @@ static const char *alttags[] = {
 
 /* Window Rules */
 static const Rule rules[] = {
-	/* class            instance    title   tags mask   isfloating  CenterThisWindow?   monitor */
+	/* class                instance    title   tags mask   isfloating  CenterThisWindow?   monitor */
 	/* Terminals */
-	{ "Alacritty",      NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "XTerm",          NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "kitty",          NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "st-256color",    NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "St",             NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "URxvt",          NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "xterm-256color", NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "Alacritty",          NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "St",                 NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "URxvt",              NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "XTerm",              NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "kitty",              NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "st-256color",        NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "xterm-256color",     NULL,       NULL,   0,          0,          1,                  -1 },
 	/* Browsers */
-	{ "Brave-browser",  NULL,       NULL,   1 << 1,     0,          0,                  -1 },
-	{ "firefox",        NULL,       NULL,   1 << 1,     0,          0,                  -1 },
-	{ "Netsurf-gtk3",   NULL,       NULL,   1 << 1,     0,          0,                  -1 },
-	{ "Surf",           NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Brave-browser",      NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Netsurf-gtk3",       NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Surf",               NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "firefox",            NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	/* Floting Apps */
-	{ "float-term",     NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Gimp",           NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Lxappearance",   NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Nitrogen",       NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Pavucontrol",    NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "TelegramDesktop",NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Gimp",               NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Lxappearance",       NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Nitrogen",           NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Pavucontrol",        NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "TelegramDesktop",    NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "float-term",         NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Sxiv",               NULL,       NULL,   0,          1,          0,                  -1 },
+	/* VMs */
+	{ "Virt-manager",       NULL,       NULL,   1 << 4,     0,          0,                  -1 },
+	{ "VirtualBox Manager", NULL,       NULL,   1 << 4,     0,          0,                  -1 },
 };
 
 /* Layout(s) */
