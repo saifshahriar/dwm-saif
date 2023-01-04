@@ -5,7 +5,6 @@
 /* Appearance */
 static const unsigned int alttagsdecor   = 1;        /* 0 means no alternate tags */
 static const unsigned int borderpx       = 2;        /* border pixel of windows */
-static const unsigned int color_emoji    = 1;        /* keep it 0 if dwm crashes trying to show coloured emojies in the title bar. */
 static const unsigned int rect_indicator = 0;        /* 1 means rectangular indicator for active tags */
 static const unsigned int smartborder    = 1;        /* 0 means borders are shown around a maximized window */
 static const unsigned int smartgaps      = 1;        /* 1 means no outer gap when there is only one window */
