@@ -186,17 +186,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_b,      toggleextrabar, {0} },
 	{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },
-	/*
-	 * xrdb_reload
-	 * Modify the Xresources file and press the keybindings to apply the color.
-	 * No need to run the command `xrdb -merge <Xresources> 
-	 * `xrdb_reload` searches for files in two places
-	 *     1. ~/.Xresources
-	 *     2. ~/.config/X11/xresources
-	 * second one is overwritten by the first one.
-	 * If no Xresources file is not found in either one of the places,
-	 * dwm uses default theme from the colors array.
-	 */
 	{ MODKEY,                       XK_F5,     xrdb_reload,    {.v = NULL } },
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },           /* Reload DWM */
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },           /* Quit DWM */
