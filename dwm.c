@@ -2323,10 +2323,12 @@ togglebar(const Arg *arg)
 void
 toggleextrabar(const Arg *arg)
 {
-	selmon->extrabar = !selmon->extrabar;
-	updatebarpos(selmon);
-	XMoveResizeWindow(dpy, selmon->extrabarwin, selmon->wx, selmon->eby, selmon->ww, bh);
-	arrange(selmon);
+	if (extrabar) {
+		selmon->extrabar = !selmon->extrabar;
+		updatebarpos(selmon);
+		XMoveResizeWindow(dpy, selmon->extrabarwin, selmon->wx, selmon->eby, selmon->ww, bh);
+		arrange(selmon);
+	}
 }
 
 void
