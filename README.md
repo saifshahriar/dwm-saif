@@ -77,6 +77,13 @@ files (if necessary as root):
 make clean install
 ```
 
+**If dwm crashes**
+This is a problem with `libXft < 2.3.5`. This problem constantly occurs in Debian/Ubuntu derivatives. There is a patch file.
+Run this command before `make install`
+```bash
+patch -p1 < noemoji.patch
+```
+	
 ## Running dwm
 ### Startx
 Add the following line to your .xinitrc to start dwm using startx:
