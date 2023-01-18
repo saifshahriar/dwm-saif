@@ -1,0 +1,112 @@
+diff --git a/config.h b/config.h
+index f639545..c2d5492 100644
+--- a/config.h
++++ b/config.h
+@@ -115,6 +115,9 @@ static const int   nmaster        = 1;        /* number of clients in master are
+ static const int   resizehints    = 1;        /* 1 means respect size hints in tiled resizals */
+ static const int   lockfullscreen = 1;        /* 1 will force focus on the fullscreen window */
+ 
++/* mouse scroll resize */
++static const int scrollsensetivity = 30; /* 1 means resize window by 1 pixel for each scroll event */
++
+ static const Layout layouts[] = {
+ 	{ "[]=",      tile },
+ 	{ ":::",      gaplessgrid },
+@@ -191,6 +194,15 @@ static const Key keys[] = {
+ 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },           /* Quit DWM */
+ };
+ 
++/* resizemousescroll direction argument list */
++static const int scrollargs[][2] = {
++	/* width change         height change */
++	{ +scrollsensetivity,	0 },
++	{ -scrollsensetivity,	0 },
++	{ 0, 				  	+scrollsensetivity },
++	{ 0, 					-scrollsensetivity },
++};
++
+ /* Mouse Bindings */
+ /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+ static const Button buttons[] = {
+@@ -205,6 +217,10 @@ static const Button buttons[] = {
+ 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+ 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+ 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
++	{ ClkClientWin,         MODKEY,         Button4,        resizemousescroll, {.v = &scrollargs[0]} },
++	{ ClkClientWin,         MODKEY,         Button5,        resizemousescroll, {.v = &scrollargs[1]} },
++	{ ClkClientWin,         MODKEY,         Button6,        resizemousescroll, {.v = &scrollargs[2]} },
++	{ ClkClientWin,         MODKEY,         Button7,        resizemousescroll, {.v = &scrollargs[3]} },
+ 	{ ClkTagBar,            0,              Button1,        view,           {0} },
+ 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
+ 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+diff --git a/dwm.c b/dwm.c
+index 5fb4b31..397fd14 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -74,6 +74,12 @@
+                                   } \
+                                 }
+ 
++/* Undefined in X11/X.h buttons that are actualy exist and correspond to
++ * horizontal scroll
++ */
++#define Button6			6
++#define Button7			7
++
+ /* enums */
+ enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
+ enum { SchemeNorm, SchemeSel, SchemeTitle }; /* color schemes */
+@@ -225,6 +231,7 @@ static Monitor *recttomon(int x, int y, int w, int h);
+ static void resize(Client *c, int x, int y, int w, int h, int interact);
+ static void resizeclient(Client *c, int x, int y, int w, int h);
+ static void resizemouse(const Arg *arg);
++static void resizemousescroll(const Arg *arg);
+ static void restack(Monitor *m);
+ static void run(void);
+ static void scan(void);
+@@ -1721,6 +1728,45 @@ resizemouse(const Arg *arg)
+ 	}
+ }
+ 
++void
++resizemousescroll(const Arg *arg)
++{
++	int nw, nh;
++	Client *c;
++	Monitor *m;
++	XEvent ev;
++	int dw = *((int*)arg->v + 1);
++	int dh = *(int*)arg->v;
++
++	if (!(c = selmon->sel))
++		return;
++	if (c->isfullscreen) /* no support resizing fullscreen windows by mouse */
++		return;
++	restack(selmon);
++	if (XGrabPointer(dpy, root, False, MOUSEMASK, GrabModeAsync, GrabModeAsync,
++		None, cursor[CurResize]->cursor, CurrentTime) != GrabSuccess)
++		return;
++	nw = MAX(c->w + dw, 1);
++	nh = MAX(c->h + dh, 1);
++	if (c->mon->wx + nw >= selmon->wx && c->mon->wx + nw <= selmon->wx + selmon->ww
++	&& c->mon->wy + nh >= selmon->wy && c->mon->wy + nh <= selmon->wy + selmon->wh)
++	{
++		if (!c->isfloating && selmon->lt[selmon->sellt]->arrange
++		&& (abs(nw - c->w) > snap || abs(nh - c->h) > snap))
++			togglefloating(NULL);
++	}
++	if (!selmon->lt[selmon->sellt]->arrange || c->isfloating)
++		resize(c, c->x, c->y, nw, nh, 1);
++	XWarpPointer(dpy, None, c->win, 0, 0, 0, 0, c->w + c->bw - 1, c->h + c->bw - 1);
++	XUngrabPointer(dpy, CurrentTime);
++	while (XCheckMaskEvent(dpy, EnterWindowMask, &ev));
++	if ((m = recttomon(c->x, c->y, c->w, c->h)) != selmon) {
++		sendmon(c, m);
++		selmon = m;
++		focus(NULL);
++	}
++}
++
+ void
+ restack(Monitor *m)
+ {
