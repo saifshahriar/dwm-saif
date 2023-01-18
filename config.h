@@ -97,7 +97,7 @@ static const Rule rules[] = {
 	{ "Surf",               NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	{ "firefox",            NULL,       NULL,   1 << 1,     0,          0,                  -1 },
 	/* Floting Apps */
-	{ "Gimp",               NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Gimp",               NULL,       NULL,   1 << 8,     0,          0,                  -1 },
 	{ "Lxappearance",       NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Nitrogen",           NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Pavucontrol",        NULL,       NULL,   0,          1,          0,                  -1 },
