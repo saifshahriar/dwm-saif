@@ -101,7 +101,7 @@ static const Rule rules[] = {
 	{ "Lxappearance",       NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Nitrogen",           NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Pavucontrol",        NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "TelegramDesktop",    NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "TelegramDesktop",    NULL,       NULL,   0,          0,          0,                  -1 },
 	{ "float-term",         NULL,       NULL,   0,          1,          0,                  -1 },
 	{ "Sxiv",               NULL,       NULL,   0,          1,          0,                  -1 },
 	/* VMs */
