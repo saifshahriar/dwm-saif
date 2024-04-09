@@ -22,7 +22,7 @@ static char *colors[][3]                 = {         /* Looks for colors in xres
 /* Bar */
 static const unsigned int showbar  = 1;   /* 0 means no bar */
 static const unsigned int topbar   = 1;   /* 0 means bottom bar */
-static const unsigned int extrabar = 1;   /* 0 means no extra bar */
+static const unsigned int extrabar = 0;   /* 1 means show an extra bar at the bottom */
 static const int user_bh           = 2;   /* 2 is the default spacing around the bar's font */
 static const char statussep        = ';'; /* separator between statuses */
 
