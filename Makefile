@@ -6,13 +6,7 @@ include config.mk
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
-all: options dwm
-
-options:
-	@echo dwm build options:
-	@echo "CFLAGS   = ${CFLAGS}"
-	@echo "LDFLAGS  = ${LDFLAGS}"
-	@echo "CC       = ${CC}"
+all: dwm
 
 .c.o:
 	${CC} -c ${CFLAGS} $<
@@ -57,4 +51,4 @@ setup: install
 man:
 	pandoc -s -t man dwm.1.md -o dwm.1
 
-.PHONY: all options clean dist install uninstall setup man
+.PHONY: all clean dist install uninstall setup man
