@@ -1418,8 +1418,6 @@ xrdb(const Arg *arg)
 		scheme[i] = drw_scm_create(drw, colors[i], 3);
 	focus(NULL);
 	arrange(NULL);
-	system("xrdb -merge ~/.config/X11/xresources");
-	system("xrdb -merge ~/.Xresources");
 }
 
 void
