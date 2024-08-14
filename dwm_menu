@@ -11,7 +11,7 @@ cat <<EOF | xmenu -ir | sh &
 	Manual				st -e man dwm
 	Reload Xresources	xrdb -merge $HOME/.Xresources || xrdb -merge $HOME/.config/X11/xresources && notify-send 'Xresources loaded'
 	 Kernel			notify-send "Kernel: $(uname -r)"
-  Applications
+󰀻  Applications
 	Development
 		Lapce			lapce
 		Neovim			st -e neovim
@@ -35,6 +35,6 @@ cat <<EOF | xmenu -ir | sh &
 		Bashrc			st -e vim ~/.bashrc
 		Fish Config		st -e vim ~/.config/config.fish
 
-勒  Reload WM			xdotool key super+shift+r && notify-send "Restarted DWM"
-  Quit					pkill dwm
+󰑓  Reload WM			xdotool key super+shift+r && notify-send "Restarted DWM"
+󰈆  Quit					pkill dwm
 EOF
