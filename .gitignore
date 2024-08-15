@@ -1,3 +1,7 @@
+# test files
+test/
+tests/
+
 # editor config
 .exrc
 
