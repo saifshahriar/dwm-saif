@@ -18,7 +18,7 @@ dwm is an extremely fast, small, and dynamic window manager for X.
 
 ## Why another DWM fork?
 DWM comes in pretty good shape. This fork of DWM tries to be minimal yet some features
-that I thought is missing (for my personal use obviously). The word *minimal* is different from person to person. To be
+that I thought is missing (for my personal taste obviously). The word *minimal* is different from person to person. To be
 fair, I even tried to get rid of the bar. Lol! Also, one of the main purpose for
 this project is learning the *beautifully unsafe C programming language* that
 dwm is written in. :/
@@ -28,7 +28,7 @@ dwm is written in. :/
 - Ability to reload dwm without logging out. Default key for this is
 `Mod4 + Shift + r`.
 - Gaps and the ability to change the gaps on the fly. See `keybindings` section.
-- *Smartgaps*: Show no gaps when there is only one window.
+- *Smartgaps*: Show no gaps when there is only one window per tag.
 - Ability to set colours from `~/.Xresources` or `~/.config/X11/xresources` file. See more at [Xresources Section](https://github.com/saifshahriar/dwm-saif#xresources-settings).
 - Centers terminal windows (or any windows defined in the config) to the center
 if it is the only window in that tag. Also change the `height`, `width` and the
@@ -40,18 +40,21 @@ if it is the only window in that tag. Also change the `height`, `width` and the
 config).
 
 ### More to come?
-- [ ] Maybe a `lua` config file. Not too crazy like `awesomewm`. I am not sure. Heh.
+- [ ] Maybe a ~~`lua` config file. Not too crazy like `awesomewm`. I am not sure. Heh.~~ `toml` parser.
 - [ ] Combinations of `alttagsdecoration`, `underline tags`, and `rainbow` tags
 	  and the ability to turn them on/off from the config.
+- [ ] Ability to apply **Optional Patches** using preprocessors.
 
 ## Requirements
 - In order to build dwm you need the Xlib header files.
-- For colour emoji support, install `libxft-bgra`. Heres the [repo](https://github.com/uditkarode/libxft-bgra).
+~~- For colour emoji support, install `libxft-bgra`. Heres the [repo](https://github.com/uditkarode/libxft-bgra).~~
 - `st`, unless you change the terminal emmulator
 - `dmenu`, as the run launcher
+
+**Optional:**
 - `xmneu`, for right click menu support
 - `xdotool`, for some of the xmenu scripting
-- `JetBrainsMono Nerd Font` or any nerd font for icons
+- `JetBrainsMono Nerd Font` (default) or any nerd font for icons
 
 ## Installation
 Clone the repo:
@@ -63,7 +66,7 @@ cd dwm
 Edit `config.mk` to match your local setup (dwm is installed into the
 `/usr/local` namespace by default).
 
-First time installing the window manager, type this commnad (as root) to setup
+First time installing the window manager, type this command (as root) to setup
 everything.
 ```bash
 make setup
@@ -149,6 +152,12 @@ Here are some of the patches that I have applied.
 - underline tags      - Underline below a tag.
 - vanitygaps          - Adds gapps around the windows.
 - xrdb                - Read colors from xresources. For this patch to work, run the command `xrdb -load <path-to-xresources>`
+
+**Optional Patches:** These are some optional patches that comes separately and are not applied by default. If you need them you can simply `git apply <patch-name>.patch` or you can use the standard `patch` command.
+- bidi.patch          - Adds proper support for Right-To-Left languages. (such as Farsi, Arabic or Hebrew)
+- noemoji.patch       - Disables coloured text and emojis in the title bar. There is a LibXft bug that causes DWM to crash whenever any emoji is being displayed in the title bar. Currently it has been fixed. So, treat this as a legacy code for older systems.
+- touchpad.patch      - Touchpad support for laptops.
+
 
 ## Xresources Settings
 This is an example for all the variables you can use to customize the colours of
