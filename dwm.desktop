@@ -2,4 +2,6 @@
 Name=DWM
 Comment=Dynamic Window Manager
 Exec=dwm
+Icon=dwm
 Type=Application
+Keywords=X11;tiling;windowmanager;
