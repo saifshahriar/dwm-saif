@@ -2,7 +2,7 @@
 #include "movestack.c"
 #include "psudogaplessgrid.c"
 
-/* Appearance */
+/* General Appearance and Behaviour */
 static const unsigned int alttagsdecor   = 1;        /* 0 means no alternate tags */
 static const unsigned int borderpx       = 2;        /* border pixel of windows */
 static const unsigned int rect_indicator = 0;        /* 1 means rectangular indicator for active tags */
