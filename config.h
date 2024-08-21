@@ -82,31 +82,31 @@ static const char *alttags[] = {
 
 /* Window Rules */
 static const Rule rules[] = {
-	/* class                instance    title   tags mask   isfloating  CenterThisWindow?   monitor */
+	/* class                instance   title   tags-mask   float   center   monitor */
 	/* Terminals */
-	{ "Alacritty",          NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "St",                 NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "URxvt",              NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "XTerm",              NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "kitty",              NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "st-256color",        NULL,       NULL,   0,          0,          1,                  -1 },
-	{ "xterm-256color",     NULL,       NULL,   0,          0,          1,                  -1 },
+	{ "Alacritty",          NULL,      NULL,   0,          0,      1,       -1 },
+	{ "St",                 NULL,      NULL,   0,          0,      1,       -1 },
+	{ "URxvt",              NULL,      NULL,   0,          0,      1,       -1 },
+	{ "XTerm",              NULL,      NULL,   0,          0,      1,       -1 },
+	{ "kitty",              NULL,      NULL,   0,          0,      1,       -1 },
+	{ "st-256color",        NULL,      NULL,   0,          0,      1,       -1 },
+	{ "xterm-256color",     NULL,      NULL,   0,          0,      1,       -1 },
 	/* Browsers */
-	{ "Brave-browser",      NULL,       NULL,   1 << 1,     0,          0,                  -1 },
-	{ "Netsurf-gtk3",       NULL,       NULL,   1 << 1,     0,          0,                  -1 },
-	{ "Surf",               NULL,       NULL,   1 << 1,     0,          0,                  -1 },
-	{ "firefox",            NULL,       NULL,   1 << 1,     0,          0,                  -1 },
+	{ "Brave-browser",      NULL,      NULL,   1 << 1,     0,      0,       -1 },
+	{ "Netsurf-gtk3",       NULL,      NULL,   1 << 1,     0,      0,       -1 },
+	{ "Surf",               NULL,      NULL,   1 << 1,     0,      0,       -1 },
+	{ "firefox",            NULL,      NULL,   1 << 1,     0,      0,       -1 },
 	/* Floting Apps */
-	{ "Gimp",               NULL,       NULL,   1 << 8,     0,          0,                  -1 },
-	{ "Lxappearance",       NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Nitrogen",           NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Pavucontrol",        NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "TelegramDesktop",    NULL,       NULL,   1 << 5,     0,          0,                  -1 },
-	{ "float-term",         NULL,       NULL,   0,          1,          0,                  -1 },
-	{ "Sxiv",               NULL,       NULL,   0,          1,          0,                  -1 },
+	{ "Gimp",               NULL,      NULL,   1 << 8,     0,      0,       -1 },
+	{ "Lxappearance",       NULL,      NULL,   0,          1,      0,       -1 },
+	{ "Nitrogen",           NULL,      NULL,   0,          1,      0,       -1 },
+	{ "Pavucontrol",        NULL,      NULL,   0,          1,      0,       -1 },
+	{ "TelegramDesktop",    NULL,      NULL,   1 << 5,     0,      0,       -1 },
+	{ "float-term",         NULL,      NULL,   0,          1,      0,       -1 },
+	{ "Sxiv",               NULL,      NULL,   0,          1,      0,       -1 },
 	/* VMs */
-	{ "Virt-manager",       NULL,       NULL,   1 << 4,     0,          0,                  -1 },
-	{ "VirtualBox Manager", NULL,       NULL,   1 << 4,     0,          0,                  -1 },
+	{ "Virt-manager",       NULL,      NULL,   1 << 4,     0,      0,       -1 },
+	{ "VirtualBox Manager", NULL,      NULL,   1 << 4,     0,      0,       -1 },
 };
 
 /* Layout(s) */
@@ -212,4 +212,3 @@ static const Button buttons[] = {
 	{ ClkRootWin,           0,              Button1,        spawn,          SHCMD("dwm_menu") },
 	{ ClkRootWin,           0,              Button3,        spawn,          SHCMD("dwm_menu") },
 };
-
