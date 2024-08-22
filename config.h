@@ -53,7 +53,7 @@ static const unsigned int ulineall     = 0;    /* 1 to show underline on all tag
 /* 	"  ", */
 /* 	"  ", */
 /* 	"  ", */
-/* 	" 漣 " */
+/* 	"  " */
 /* }; */
 
 static const char *tags[] = {
