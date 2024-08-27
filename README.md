@@ -45,7 +45,7 @@ config).
 - [ ] Add patch `riodraw`.
 - [ ] Combinations of `alttagsdecoration`, `underline tags`, and `rainbow` tags
 	  and the ability to turn them on/off from the config.
-- [ ] Ability to apply **Optional Patches** using preprocessors.
+- [ ] TODO: Ability to apply **Optional Patches** using preprocessors.
 
 ## Requirements
 - In order to build dwm you need the Xlib header files.
