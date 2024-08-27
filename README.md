@@ -40,7 +40,9 @@ if it is the only window in that tag. Also change the `height`, `width` and the
 config).
 
 ### More to come?
-- [ ] Maybe a ~~`lua` config file. Not too crazy like `awesomewm`. I am not sure. Heh.~~ `toml` parser.
+- [ ] ~~Maybe a ~~`lua` config file. Not too crazy like `awesomewm`. I am not sure. Heh.~~ `toml` parser.~~ I am sorry. Not doing this shit.
+- [ ] Add patch `swallow`.
+- [ ] Add patch `riodraw`.
 - [ ] Combinations of `alttagsdecoration`, `underline tags`, and `rainbow` tags
 	  and the ability to turn them on/off from the config.
 - [ ] Ability to apply **Optional Patches** using preprocessors.
