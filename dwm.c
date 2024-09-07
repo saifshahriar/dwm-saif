@@ -79,7 +79,7 @@ enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
 enum { SchemeNorm, SchemeSel, SchemeTitle }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
-       NetWMWindowTypeDialog, NetClientList, NetClientInfo, NetLast }; /* EWMH atoms */ 
+       NetWMWindowTypeDialog, NetClientList, NetClientInfo, NetLast }; /* EWMH atoms */
 enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
 enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
        ClkExBarLeftStatus, ClkExBarMiddle, ClkExBarRightStatus,
@@ -1902,7 +1902,7 @@ maximize(int x, int y, int w, int h) {
 			selmon->sel->oldbw = selmon->sel->bw;
 			selmon->sel->bw = 0;
 			resize(selmon->sel, x, y, w + selmon->sel->oldbw*2, h + selmon->sel->oldbw*2, True);
-		} else { 
+		} else {
 			resize(selmon->sel, x, y, w, h, True);
 		}
 		selmon->sel->ismax = True;
@@ -2248,7 +2248,7 @@ tag(const Arg *arg)
 }
 
 void
-tagmon(const Arg *arg) 
+tagmon(const Arg *arg)
 {
 	if (!selmon->sel || !mons->next)
 		return;
@@ -2784,7 +2784,7 @@ viewprev(const Arg *arg)
 {
 	view(&(const Arg){.ui = prevtag()});
 }
- 
+
 Client *
 wintoclient(Window w)
 {

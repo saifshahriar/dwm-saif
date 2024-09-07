@@ -5,7 +5,7 @@ index 8efca9a..a84dfc3 100644
 @@ -10,6 +10,8 @@ MANPREFIX = ${PREFIX}/share/man
  X11INC = /usr/X11R6/include
  X11LIB = /usr/X11R6/lib
- 
+
 +BDINC = /usr/include/fribidi
 +
  # Xinerama, comment if you don't want it
@@ -14,7 +14,7 @@ index 8efca9a..a84dfc3 100644
 @@ -21,9 +23,11 @@ FREETYPEINC = /usr/include/freetype2
  #FREETYPEINC = ${X11INC}/freetype2
  #MANPREFIX = ${PREFIX}/man
- 
+
 +BDLIBS = -lfribidi
 +
  # includes and libs
@@ -22,7 +22,7 @@ index 8efca9a..a84dfc3 100644
 -LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 +INCS = -I${X11INC} -I${FREETYPEINC} -I$(BDINC)
 +LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS} $(BDLIBS)
- 
+
  # flags
  CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 diff --git a/dwm.c b/dwm.c
@@ -31,14 +31,14 @@ index af3f820..3d3db0d 100644
 +++ b/dwm.c
 @@ -22,6 +22,7 @@
   */
- 
+
  #include <errno.h>
 +#include <fribidi.h>
  #include <locale.h>
  #include <signal.h>
  #include <stdarg.h>
 @@ -171,6 +172,7 @@ typedef struct {
- 
+
  /* function declarations */
  /* Unused functions are commented, uncomment them if you need. IK it's a shitty code :) */
 +static void apply_fribidi(char *str);
@@ -55,7 +55,7 @@ index af3f820..3d3db0d 100644
  static char estextr[1024];
 @@ -347,6 +350,21 @@ struct Pertag {
  struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
- 
+
  /* function implementations */
 +void
 +apply_fribidi(char *str)

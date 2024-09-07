@@ -5,7 +5,7 @@ index f639545..c2d5492 100644
 @@ -115,6 +115,9 @@ static const int   nmaster        = 1;        /* number of clients in master are
  static const int   resizehints    = 1;        /* 1 means respect size hints in tiled resizals */
  static const int   lockfullscreen = 1;        /* 1 will force focus on the fullscreen window */
- 
+
 +/* mouse scroll resize */
 +static const int scrollsensetivity = 30; /* 1 means resize window by 1 pixel for each scroll event */
 +
@@ -15,7 +15,7 @@ index f639545..c2d5492 100644
 @@ -191,6 +194,15 @@ static const Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },           /* Quit DWM */
  };
- 
+
 +/* resizemousescroll direction argument list */
 +static const int scrollargs[][2] = {
 +	/* width change         height change */
@@ -46,7 +46,7 @@ index 5fb4b31..397fd14 100644
 @@ -74,6 +74,12 @@
                                    } \
                                  }
- 
+
 +/* Undefined in X11/X.h buttons that are actualy exist and correspond to
 + * horizontal scroll
 + */
@@ -67,7 +67,7 @@ index 5fb4b31..397fd14 100644
 @@ -1721,6 +1728,45 @@ resizemouse(const Arg *arg)
  	}
  }
- 
+
 +void
 +resizemousescroll(const Arg *arg)
 +{
