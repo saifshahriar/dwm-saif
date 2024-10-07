@@ -2,6 +2,10 @@ readme
 ------
 * add latest screenshots
 
+features
+--------
+* add Monocle layout
+
 refactor
 --------
 * refactor window rules like bakkeby/dwm-flexipatch
