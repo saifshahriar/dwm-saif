@@ -1,0 +1,11 @@
+readme
+------
+* add latest screenshots
+
+refactor
+--------
+* refactor window rules like bakkeby/dwm-flexipatch
+
+bug
+---
+* fix layout section to add 3 layouts (currently two)
