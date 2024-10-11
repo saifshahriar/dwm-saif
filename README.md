@@ -35,7 +35,7 @@ if it is the only window in that tag. Also change the `height`, `width` and the
 `y-offset` of that window.
 - Custom height for bar.
 - `Gaplessgrid` layout, but with gaps.
-- Toggle minimize.
+- Toggle maximize.
 - No border when a window is minimized (can change the behaviour from the
 config).
 
@@ -144,7 +144,6 @@ Here are some of the patches that I have applied.
 - extrabar            - Dual bar.
 - focusonnetactive    - Focus when a window gets active even in some other tag.
 - layoutscroll        - Cycle through all layouts defined in layouts array.
-- maximize            - Toggle maximize.
 - movestack           - Move stacks in a tag using mod+shift+{j,k}
 - noborder            - Noborder when only one window.
 - pertag              - dwm pertag patch, which allow different type of window size in different tags and doesn't change if one changed in one tag.

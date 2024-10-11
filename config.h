@@ -126,6 +126,11 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 };
 
+/* Define new layouts from the array */
+/* This makes monocle act as maximize layout */
+#define MAXIMIZE &layouts[3]
+/*#define MAXIMIZE {.v = &layouts[3]}*/
+
 /* Key Definitions */
 #define MODKEY  Mod4Mask
 #define META    Mod1Mask
