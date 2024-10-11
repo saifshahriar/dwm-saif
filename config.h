@@ -80,6 +80,7 @@ static const char *alttags[] = {
 	"[gfx]"
 };
 
+/* TODO: refactor this window rule like bakkeby/dwm-flexipatch */
 /* Window Rules */
 static const Rule rules[] = {
 	/* xprop(1):
