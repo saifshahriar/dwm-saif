@@ -82,6 +82,10 @@ static const char *alttags[] = {
 
 /* Window Rules */
 static const Rule rules[] = {
+	/* xprop(1):
+	 *  WM_CLASS(STRING) = instance, class
+	 *  WM_NAME(STRING) = title
+	 */
 	/* class                instance   title   tags-mask   float   center   monitor */
 	/* Terminals */
 	{ "Alacritty",          NULL,      NULL,   0,          0,      1,       -1 },
