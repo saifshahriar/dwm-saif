@@ -158,7 +158,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_equal,  incnmaster,     {.i = +1} },
 	{ MODKEY|ControlMask,           XK_minus,  incnmaster,     {.i = -1} },
 	/* Layouts */
-	{ MODKEY,                       XK_Tab,    setlayout,      {0} },
+	{ MODKEY,                       XK_Tab,    layoutscroll,   {.i = +1 } },
 	{ MODKEY,                       XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglemaximize, {0} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },

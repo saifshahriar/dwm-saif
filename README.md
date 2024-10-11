@@ -143,6 +143,7 @@ Here are some of the patches that I have applied.
 - cursorwarp          - Warp the cursor to the center of the target window when switching between them.
 - extrabar            - Dual bar.
 - focusonnetactive    - Focus when a window gets active even in some other tag.
+- layoutscroll        - Cycle through all layouts defined in layouts array.
 - maximize            - Toggle maximize.
 - movestack           - Move stacks in a tag using mod+shift+{j,k}
 - noborder            - Noborder when only one window.
