@@ -109,7 +109,7 @@ struct Client {
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
 	int bw, oldbw;
 	unsigned int tags;
-	int ismax, isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, CenterThisWindow;
+	int ismax, isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, iscentered;
 	Client *next;
 	Client *snext;
 	Monitor *mon;
@@ -165,9 +165,13 @@ typedef struct {
 	const char *title;
 	unsigned int tags;
 	int isfloating;
-	int CenterThisWindow;
+	int iscentered;
 	int monitor;
 } Rule;
+
+#define RULE(...) { .monitor = -1, __VA_ARGS__ },
+#define FLOATING , .isfloating = 1
+#define CENTERED , .iscentered = 1
 
 /* function declarations */
 /* Unused functions are commented, uncomment them if you need. IK it's a shitty code :) */
@@ -359,7 +363,7 @@ applyrules(Client *c)
 
 	/* rule matching */
 	c->isfloating = 0;
-	c->CenterThisWindow = 0;
+	c->iscentered = 0;
 	c->tags = 0;
 	XGetClassHint(dpy, c->win, &ch);
 	class    = ch.res_class ? ch.res_class : broken;
@@ -372,7 +376,7 @@ applyrules(Client *c)
 		&& (!r->instance || strstr(instance, r->instance)))
 		{
 			c->isfloating = r->isfloating;
-			c->CenterThisWindow = r->CenterThisWindow;
+			c->iscentered = r->iscentered;
 			c->tags |= r->tags;
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
@@ -2292,7 +2296,7 @@ tile(Monitor *m)
 			if (ty + HEIGHT(c) + m->gappih*ie < m->wh)
 				ty += HEIGHT(c) + m->gappih*ie;
 		}
-	if (n == 1 && selmon->sel->CenterThisWindow)
+	if (n == 1 && selmon->sel->iscentered)
 		resizeclient(selmon->sel,
 				/* Controls Window Position to X and Y */
 				(selmon->mw - selmon->mw * fw_width) / 2,
