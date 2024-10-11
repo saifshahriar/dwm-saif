@@ -1,8 +1,8 @@
 diff --git a/config.h b/config.h
-index f639545..c2d5492 100644
+index b59c268..017c941 100644
 --- a/config.h
 +++ b/config.h
-@@ -115,6 +115,9 @@ static const int   nmaster        = 1;        /* number of clients in master are
+@@ -119,6 +119,9 @@ static const int   nmaster        = 1;        /* number of clients in master are
  static const int   resizehints    = 1;        /* 1 means respect size hints in tiled resizals */
  static const int   lockfullscreen = 1;        /* 1 will force focus on the fullscreen window */
 
@@ -10,9 +10,9 @@ index f639545..c2d5492 100644
 +static const int scrollsensetivity = 30; /* 1 means resize window by 1 pixel for each scroll event */
 +
  static const Layout layouts[] = {
- 	{ "[]=",      tile },
+ 	{ "[]=",      tile },    /* first entry is default */
  	{ ":::",      gaplessgrid },
-@@ -191,6 +194,15 @@ static const Key keys[] = {
+@@ -202,6 +205,15 @@ static const Key keys[] = {
  	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },           /* Quit DWM */
  };
 
@@ -28,7 +28,7 @@ index f639545..c2d5492 100644
  /* Mouse Bindings */
  /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
  static const Button buttons[] = {
-@@ -205,6 +217,10 @@ static const Button buttons[] = {
+@@ -216,6 +228,10 @@ static const Button buttons[] = {
  	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
  	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
  	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
@@ -40,10 +40,10 @@ index f639545..c2d5492 100644
  	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
  	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 diff --git a/dwm.c b/dwm.c
-index 5fb4b31..397fd14 100644
+index 23fddc9..df961dd 100644
 --- a/dwm.c
 +++ b/dwm.c
-@@ -74,6 +74,12 @@
+@@ -73,6 +73,12 @@
                                    } \
                                  }
 
@@ -64,7 +64,7 @@ index 5fb4b31..397fd14 100644
  static void restack(Monitor *m);
  static void run(void);
  static void scan(void);
-@@ -1721,6 +1728,45 @@ resizemouse(const Arg *arg)
+@@ -1728,6 +1735,45 @@ resizemouse(const Arg *arg)
  	}
  }
 
