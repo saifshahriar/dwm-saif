@@ -2353,7 +2353,7 @@ togglemaximize(const Arg *arg)
 	selmon->sel->isfloating = False;
 	if (!selmon->sel || selmon->sel->isfixed || selmon->sel->isfullscreen)
 		return;
-	Arg domax = selmon->sel->ismax ? (Arg){.v = &layouts[0]} : (Arg){.v = MAXIMIZE};
+	Arg domax = selmon->sel->ismax ? (Arg){.v = &layouts[selmon->ltcur]} : (Arg){.v = MAXIMIZE};
 	setlayout(&domax);
 	selmon->sel->ismax = !selmon->sel->ismax;
 }
