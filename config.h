@@ -82,35 +82,44 @@ static const char *alttags[] = {
 
 /* Window Rules */
 static const Rule rules[] = {
-	/* xprop(1):
+	/* Available values are:
+	 *  .class,
+	 *  .instance,
+	 *  .title,
+	 *  .tags,
+	 *  .isfloating,
+	 *  .iscentered,
+	 *  .monitor
+	 *
+	 * xprop(1):
 	 *  WM_CLASS(STRING) = instance, class
 	 *  WM_NAME(STRING) = title
 	 */
-	/* class                instance   title   tags-mask   float   center   monitor */
 	/* Terminals */
-	{ "Alacritty",          NULL,      NULL,   0,          0,      1,       -1 },
-	{ "St",                 NULL,      NULL,   0,          0,      1,       -1 },
-	{ "URxvt",              NULL,      NULL,   0,          0,      1,       -1 },
-	{ "XTerm",              NULL,      NULL,   0,          0,      1,       -1 },
-	{ "kitty",              NULL,      NULL,   0,          0,      1,       -1 },
-	{ "st-256color",        NULL,      NULL,   0,          0,      1,       -1 },
-	{ "xterm-256color",     NULL,      NULL,   0,          0,      1,       -1 },
+	RULE(.class = "Alacritty",      .iscentered = 1)
+	RULE(.class = "St",             .iscentered = 1)
+	RULE(.class = "URxvt",          .iscentered = 1)
+	RULE(.class = "XTerm",          .iscentered = 1)
+	RULE(.class = "kitty",          .iscentered = 1)
+	RULE(.class = "st-256color",    .iscentered = 1)
+	RULE(.class = "xterm-256color", .iscentered = 1)
 	/* Browsers */
-	{ "Brave-browser",      NULL,      NULL,   1 << 1,     0,      0,       -1 },
-	{ "Netsurf-gtk3",       NULL,      NULL,   1 << 1,     0,      0,       -1 },
-	{ "Surf",               NULL,      NULL,   1 << 1,     0,      0,       -1 },
-	{ "firefox",            NULL,      NULL,   1 << 1,     0,      0,       -1 },
+	RULE(.class = "Brave-browser", .tags = 1 << 1)
+	RULE(.class = "Netsurf-gtk3",  .tags = 1 << 1)
+	RULE(.class = "Surf",          .tags = 1 << 1)
+	RULE(.class = "firefox",       .tags = 1 << 1)
 	/* Floting Apps */
-	{ "Gimp",               NULL,      NULL,   1 << 8,     0,      0,       -1 },
-	{ "Lxappearance",       NULL,      NULL,   0,          1,      0,       -1 },
-	{ "Nitrogen",           NULL,      NULL,   0,          1,      0,       -1 },
-	{ "Pavucontrol",        NULL,      NULL,   0,          1,      0,       -1 },
-	{ "TelegramDesktop",    NULL,      NULL,   1 << 5,     0,      0,       -1 },
-	{ "float-term",         NULL,      NULL,   0,          1,      0,       -1 },
-	{ "Sxiv",               NULL,      NULL,   0,          1,      0,       -1 },
+	RULE(.class = "Lxappearance", .isfloating = 1)
+	RULE(.class = "Nitrogen",     .isfloating = 1)
+	RULE(.class = "Pavucontrol",  .isfloating = 1)
+	RULE(.class = "Sxiv", .instance = "float", .isfloating = 1)
+	RULE(.class = "float-term",   .isfloating = 1)
+	/* Spawn in Respective Tags */
+	RULE(.class = "Gimp",            .tags = 1 << 8)
+	RULE(.class = "TelegramDesktop", .tags = 1 << 5)
 	/* VMs */
-	{ "Virt-manager",       NULL,      NULL,   1 << 4,     0,      0,       -1 },
-	{ "VirtualBox Manager", NULL,      NULL,   1 << 4,     0,      0,       -1 },
+	RULE(.class = "Virt-manager",       .tags = 1 << 4)
+	RULE(.class = "VirtualBox Manager", .tags = 1 << 4)
 };
 
 /* Layout(s) */
