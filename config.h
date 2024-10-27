@@ -1,6 +1,6 @@
 #include "colors.h"
 #include "movestack.c"
-#include "psudogaplessgrid.c"
+#include "grid.c"
 
 /* General Appearance and Behaviour */
 static const unsigned int alttagsdecor   = 1;        /* 0 means no alternate tags */
@@ -130,7 +130,7 @@ static const int   lockfullscreen = 1;        /* 1 will force focus on the fulls
 
 static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
-	{ ":::",      gaplessgrid },
+	{ ":::",      grid },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };

@@ -1,5 +1,5 @@
 void
-gaplessgrid(Monitor *m)
+grid(Monitor *m)
 {
 	unsigned int i, n;
 	int x, y, cols, rows, ch, cw, cn, rn, rrest, crest; // counters
