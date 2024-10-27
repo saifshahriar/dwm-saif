@@ -5,7 +5,7 @@ readme
 
 refactor
 --------
-* refactor window rules like bakkeby/dwm-flexipatch
+* refactor togglemaximize to stop depending on layout[]
 
 bug
 ---
