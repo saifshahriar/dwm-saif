@@ -1,5 +1,5 @@
 readme
-------
+======
 * add latest screenshots
 * update readme with updated info
 
@@ -9,4 +9,4 @@ refactor
 
 bug
 ---
-* fix layout section to add 3 layouts (currently two)
+* togglemaximize crashes dwm when there is no window
